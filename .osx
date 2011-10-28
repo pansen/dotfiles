@@ -1,0 +1,24 @@
+# Mail: disable "Reply", "Send" animation
+defaults write com.apple.Mail DisableSendAnimations -bool YES
+defaults write com.apple.Mail DisableReplyAnimations -bool YES
+
+# disable dashboard
+defaults write com.apple.dashboard mcx-disabled -boolean YES
+
+# make the keyboard fast
+defaults write NSGlobalDomain KeyRepeat -int 0
+
+# move the dock to the top to hopefully never see it
+defaults write com.apple.Dock orientation -string top
+
+# safari will ignore app-restore on restart
+defaults write com.apple.Safari ApplePersistenceIgnoreState YES
+
+# disable sonderzeichen keyboard behaviour
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+# show foldercontents in preview (space action)
+defaults write com.apple.finder QLEnableXRayFolders -boolean yes
+
+# full path in finder title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
