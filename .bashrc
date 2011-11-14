@@ -1,6 +1,3 @@
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
-
 [ -f /opt/local/share/doc/git-core/contrib/completion/git-completion.bash ] \
     && . /opt/local/share/doc/git-core/contrib/completion/git-completion.bash
 
@@ -26,21 +23,10 @@ if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
 
-# history management
-export HISTCONTROL=erasedups
-export HISTCONTROL=ignoreboth
-export HISTCONTROL=ignoredups
-export PROMPT_COMMAND='history -a'
-export HISTSIZE=10000
 
-export EDITOR=vim
-export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
-export C_INCLUDE_PATH=/opt/local/include
-export CXX_INCLUDE_PATH=/opt/local/include
-export CPATH=/opt/local/include
-export LIBRARY_PATH=/opt/local/lib
-export DYLD_FALLBACK_LIBRARY_PATH=/opt/local/include:/opt/local/lib
-export MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=512m"
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
 
 
 DULL=0
@@ -104,14 +90,4 @@ BRIGHT_WHITE="\[$ESC[${BRIGHT};${FG_WHITE}m\]"
 REV_CYAN="\[$ESC[${DULL};${BG_WHITE};${BG_CYAN}m\]"
 REV_RED="\[$ESC[${DULL};${FG_YELLOW}; ${BG_RED}m\]"
 
-PROMPT_COMMAND='export ERR=$?'
-
-# PS1="${BRIGHT_CYAN}[${CYAN}\u$@\h${WHITE}:\w${BRIGHT_CYAN}]${NORMAL}\$ ${RESET}"
-# PS1="${BRIGHT_CYAN}[${CYAN}${USER}@${HOSTNAME}${WHITE}: \w ${BRIGHT_CYAN}]${NORMAL}\$ ${RESET}"
-# PS1="${BRIGHT_CYAN}[${CYAN}${USER}@\h${WHITE}: \w ${BRIGHT_CYAN}]${NORMAL}\$ ${RESET}"
-
-# PS1="${BRIGHT_CYAN}[${CYAN}${USER}${WHITE} \w${BRIGHT_CYAN}]${NORMAL}\$ ${RESET}"
-PS1="${BRIGHT_CYAN}[${CYAN}${USER}${WHITE} \w$(__git_ps1 "${GREEN} %s")${BRIGHT_CYAN}]${NORMAL}\$ ${RESET}"
-# PS1='\h:\W$(__git_ps1 "(%s)") \u\$ '
-
-# PS1="${BRIGHT_CYAN}[${CYAN}${USER}@\h${WHITE}: \w ${BRIGHT_CYAN} $(git remote -v 2>/dev/null|tail -n1|awk '{print $2}'|sed 's%\(^.*/\)\([^/]*   \)$%\2%g']${NORMAL}\$ ${RESET}"
+PS1="${BRIGHT_CYAN}[${CYAN}${USER}${WHITE} \w ${GREEN}\$(__git_ps1 "%s")${BRIGHT_CYAN}]${NORMAL}\$ ${RESET}" 
