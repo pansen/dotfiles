@@ -90,4 +90,5 @@ BRIGHT_WHITE="\[$ESC[${BRIGHT};${FG_WHITE}m\]"
 REV_CYAN="\[$ESC[${DULL};${BG_WHITE};${BG_CYAN}m\]"
 REV_RED="\[$ESC[${DULL};${FG_YELLOW}; ${BG_RED}m\]"
 
-PS1="${BRIGHT_CYAN}[${CYAN}${USER}${WHITE} \w ${GREEN}\$(__git_ps1 "%s")${BRIGHT_CYAN}]${NORMAL}\$ ${RESET}" 
+PS1="${CYAN}${USER}${WHITE} \w ${GREEN}\$(__git_ps1 "%s") ${NORMAL}\$ ${RESET}" 
+export CLICOLOR=1
