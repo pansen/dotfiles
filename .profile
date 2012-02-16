@@ -1,19 +1,19 @@
 # MacPorts Installer addition on 2009-06-02_at_11:15:44: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:/opt//local/share/java/maven3/bin:/usr/local/cuda/bin:$PATH
-export PATH=~/.gem/ruby/1.8/bin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:~/Library/android-sdk-macosx/tools:~/.gem/ruby/1.8/bin:$PATH
+export PATH="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/bin:~/bin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
 export ANT_HOME=/usr/share/ant
 export GRAILS_HOME="/opt/local/share/java/grails"
 export CATALINA_OPTS="-server -Xmx256m"
-export PATH="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/bin:/opt/local/bin:~/bin:$PATH"
 export RABBITMQ_NODENAME='svz-pcn-205'
 export CFLAGS="-O2 -pipe"
 export CXXFLAGS=${CFLAGS}
 export MAKEOPTS="-j4"
 export PYTHONSTARTUP=~/.pythonstartup
 export M2_REPO=~/.m2
+export ANDROID_HOME=~/Library/android-sdk-macosx
 
 # history management
 export HISTCONTROL=ignoredups
@@ -27,6 +27,12 @@ export CXX_INCLUDE_PATH=/opt/local/include
 export CPATH=/opt/local/include
 export LIBRARY_PATH=/opt/local/lib
 export DYLD_FALLBACK_LIBRARY_PATH=/opt/local/include:/opt/local/lib
+export CPPFLAGS="-I/opt/local/include"
+
+# for https://github.com/sickill/stderred
+# export DYLD_INSERT_LIBRARIES=${HOME}/project/stderred/lib/stderred.dylib 
+# export DYLD_FORCE_FLAT_NAMESPACE=1
+
 export MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=512m"
 
 # convenient ssh handling
