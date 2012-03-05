@@ -24,3 +24,6 @@ defaults write com.apple.finder QLEnableXRayFolders -boolean yes
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
 
 defaults write com.apple.screencapture type jpg
+
+# ipv6 stuff
+# sudo su -c echo "net.inet6.ip6.use_tempaddr=1" >> /etc/sysctl.conf
