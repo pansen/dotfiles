@@ -8,6 +8,9 @@ defaults write com.apple.dashboard mcx-disabled -boolean YES
 # make the keyboard fast
 defaults write NSGlobalDomain KeyRepeat -int 0
 
+echo "Set a shorter Delay until key repeat"
+defaults write NSGlobalDomain InitialKeyRepeat -int 12
+
 # move the dock to the top to hopefully never see it
 defaults write com.apple.Dock orientation -string top
 
@@ -27,3 +30,61 @@ defaults write com.apple.screencapture type jpg
 
 # ipv6 stuff
 # sudo su -c echo "net.inet6.ip6.use_tempaddr=1" >> /etc/sysctl.conf
+#
+# things from https://gist.github.com/2260182
+
+echo "Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+echo "Show all filename extensions in Finder"
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+echo "Use current directory as default search scope in Finder"
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+echo "Show Status bar in Finder"
+defaults write com.apple.finder ShowStatusBar -bool true
+
+echo "Expand save panel by default"
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+echo "Expand print panel by default"
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
+echo "Disable auto-correct"
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Increase window resize speed for Cocoa applications
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+echo "Avoid creating .DS_Store files on network volumes"
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+echo "Disable the warning when changing a file extension"
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+echo "Enable tap to click (Trackpad)"
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+
+echo "Disable Safari’s thumbnail cache for History and Top Sites"
+defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
+
+echo "Enable Safari’s debug menu"
+defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+
+echo "Only use UTF-8 in Terminal.app"
+defaults write com.apple.terminal StringEncodings -array 4
+
+echo "Disable the Ping sidebar in iTunes"
+defaults write com.apple.iTunes disablePingSidebar -bool true
+
+echo "Disable all the other Ping stuff in iTunes"
+defaults write com.apple.iTunes disablePing -bool true
+
+echo "Make ⌘ + F focus the search input in iTunes"
+defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Field" "@F"
+
+echo "Show the ~/Library folder"
+chflags nohidden ~/Library
+
+
