@@ -1,3 +1,8 @@
+export PATH="~/bin:$PATH"
+export PATH="$PATH:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/bin"
+export PATH=$PATH:~/Library/android-sdk-macosx/tools
+export PATH=$PATH:~/.gem/ruby/1.8/bin
+
 [ -f /opt/local/share/doc/git-core/contrib/completion/git-completion.bash ] \
     && . /opt/local/share/doc/git-core/contrib/completion/git-completion.bash
 
@@ -28,6 +33,35 @@ fi
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+
+GNU_DIRCOLORS="/opt/local/libexec/gnubin/dircolors"
+
+if [ "$TERM" != "dumb" ] && [ -x $GNU_DIRCOLORS ]; then
+    eval $($GNU_DIRCOLORS $HOME/.dir_colors)
+
+    alias ls='ls --color=auto'
+
+    export LS_OPTIONS='--color=auto'
+    export CLICOLOR='Yes'
+
+    #alias dir='ls --color=auto --format=vertical'
+    #alias vdir='ls --color=auto --format=long'
+
+    #alias grep='grep --color=auto'
+    #alias fgrep='fgrep --color=auto'
+    #alias egrep='egrep --color=auto'
+else
+    # set dircolors for osx native fileutils
+    # http://www.napolitopia.com/2010/03/lscolors-in-osx-snow-leopard-for-dummies/
+    export LSCOLORS='gxgxfxfxcxdxdxhbadbxbx'
+    alias ls='ls -G'
+fi
+
+GNU_LS="/opt/local/libexec/gnubin/ls"
+
+if [ "$TERM" != "dumb" ] && [ -x $GNU_LS ]; then
+    export PATH="/opt/local/libexec/gnubin:$PATH"
+fi
 
 DULL=0
 BRIGHT=1

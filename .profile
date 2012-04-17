@@ -1,8 +1,3 @@
-# MacPorts Installer addition on 2009-06-02_at_11:15:44: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:~/Library/android-sdk-macosx/tools:~/.gem/ruby/1.8/bin:$PATH
-export PATH="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/bin:~/bin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
-
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
 export ANT_HOME=/usr/share/ant
 export GRAILS_HOME="/opt/local/share/java/grails"
@@ -10,7 +5,7 @@ export CATALINA_OPTS="-server -Xmx256m"
 export RABBITMQ_NODENAME='svz-pcn-205'
 export CFLAGS="-O2 -pipe"
 export CXXFLAGS=${CFLAGS}
-export MAKEOPTS="-j4"
+export MAKEOPTS="-j2"
 export PYTHONSTARTUP=~/.pythonstartup
 export M2_REPO=~/.m2
 export ANDROID_HOME=~/Library/android-sdk-macosx
@@ -55,19 +50,6 @@ function check_agent {
 }
  
 alias ssh='check_agent; ssh'
-
-# enable color support of ls and also add handy aliases
-if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
-    # eval "`/usr/bin/dircolors -b`"
-    eval `/usr/bin/dircolors $HOME/.dir_colors`
-    alias ls='ls --color=auto'
-    #alias dir='ls --color=auto --format=vertical'
-    #alias vdir='ls --color=auto --format=long'
-
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
-fi
 
 alias ll='ls -l'
 alias la='ls -lAh'
