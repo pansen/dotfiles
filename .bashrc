@@ -1,4 +1,6 @@
 export PATH="~/bin:$PATH"
+export PATH="/opt/local/bin:$PATH"
+export PATH="/opt/local/sbin:$PATH"
 export PATH="$PATH:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/bin"
 export PATH=$PATH:~/Library/android-sdk-macosx/tools
 export PATH=$PATH:~/.gem/ruby/1.8/bin

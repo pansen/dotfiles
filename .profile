@@ -9,6 +9,7 @@ export MAKEOPTS="-j2"
 export PYTHONSTARTUP=~/.pythonstartup
 export M2_REPO=~/.m2
 export ANDROID_HOME=~/Library/android-sdk-macosx
+export PIP_DOWNLOAD_CACHE=$HOME/Library/Caches/pip-downloads
 
 # history management
 export HISTCONTROL=ignoredups
