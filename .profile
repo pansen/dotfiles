@@ -217,6 +217,6 @@ if [ "$color_prompt" = yes ]; then
     REV_CYAN="\[$ESC[${DULL};${BG_WHITE};${BG_CYAN}m\]"
     REV_RED="\[$ESC[${DULL};${FG_YELLOW}; ${BG_RED}m\]"
 
-    PS1="${CYAN}${USER}${WHITE} \w ${GREEN}\$(__git_ps1 "%s") ${NORMAL}\$ ${RESET}" 
+    PS1="${CYAN}${USER}${WHITE} \w ${GREEN}\$([ `type -t __git_ps1` == "function" ] && __git_ps1 "%s") ${NORMAL}\$ ${RESET}" 
     export CLICOLOR=1
 fi
