@@ -127,12 +127,14 @@ fi
 # ------------------------------------------
 
 if [ "$color_prompt" = yes ]; then
-    GNU_DIRCOLORS="/opt/local/libexec/gnubin/dircolors"
+    GNU_LS="/opt/local/libexec/gnubin/ls"
+    if [ "$TERM" != "dumb" ] && [ -x $GNU_LS ]; then
+        alias ls='/opt/local/libexec/gnubin/ls --color=auto'
+    fi
 
+    GNU_DIRCOLORS="/opt/local/libexec/gnubin/dircolors"
     if [ "$TERM" != "dumb" ] && [ -x $GNU_DIRCOLORS ]; then
         eval $($GNU_DIRCOLORS $HOME/.dir_colors)
-
-        alias ls='ls --color=auto'
 
         export LS_OPTIONS='--color=auto'
         export CLICOLOR='Yes'
@@ -150,11 +152,6 @@ if [ "$color_prompt" = yes ]; then
         alias ls='ls -G'
     fi
 
-    GNU_LS="/opt/local/libexec/gnubin/ls"
-
-    if [ "$TERM" != "dumb" ] && [ -x $GNU_LS ]; then
-        export PATH="/opt/local/libexec/gnubin:$PATH"
-    fi
 
     DULL=0
     BRIGHT=1
