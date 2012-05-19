@@ -47,6 +47,7 @@ export PATH="/opt/local/sbin:$PATH"
 export PATH="$PATH:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/bin"
 export PATH=$PATH:~/Library/android-sdk-macosx/tools
 export PATH=$PATH:~/.gem/ruby/1.8/bin
+export PATH=$PATH:"/Applications/VMware Fusion.app/Contents/Library"
 
 
 # ------------------------------------------
@@ -214,6 +215,6 @@ if [ "$color_prompt" = yes ]; then
     REV_CYAN="\[$ESC[${DULL};${BG_WHITE};${BG_CYAN}m\]"
     REV_RED="\[$ESC[${DULL};${FG_YELLOW}; ${BG_RED}m\]"
 
-    PS1="${CYAN}${USER}${WHITE} \w ${GREEN}\$([ `type -t __git_ps1` == "function" ] && __git_ps1 "%s") ${NORMAL}\$ ${RESET}" 
+    PS1="${CYAN}${USER}${WHITE} \w ${GREEN}\$([ \"function\" == \"`type -t __git_ps1`\" ] && __git_ps1 "%s") ${NORMAL}\$ ${RESET}"
     export CLICOLOR=1
 fi
