@@ -215,6 +215,6 @@ if [ "$color_prompt" = yes ]; then
     REV_CYAN="\[$ESC[${DULL};${BG_WHITE};${BG_CYAN}m\]"
     REV_RED="\[$ESC[${DULL};${FG_YELLOW}; ${BG_RED}m\]"
 
-    PS1="${CYAN}${USER} ${BRIGHT_BLUE}${HOSTNAME}${WHITE} \w ${GREEN}\$([ \"function\" == \"`type -t __git_ps1`\" ] && __git_ps1 "%s") ${NORMAL}\$ ${RESET}"
+    PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && echo -e \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME}${WHITE} \w ${GREEN}\$([ \"function\" == \"`type -t __git_ps1`\" ] && __git_ps1 "%s") ${NORMAL}\$ ${RESET}"
     export CLICOLOR=1
 fi
