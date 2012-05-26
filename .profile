@@ -125,6 +125,7 @@ fi
 
 # ------------------------------------------
 # Colors
+# install ``sudo port -v install coreutils``
 # ------------------------------------------
 
 if [ "$color_prompt" = yes ]; then
