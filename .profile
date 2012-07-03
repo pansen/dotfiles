@@ -215,7 +215,8 @@ if [ "$color_prompt" = yes ]; then
     # REV TEXT as an example
     REV_CYAN="\[$ESC[${DULL};${BG_WHITE};${BG_CYAN}m\]"
     REV_RED="\[$ESC[${DULL};${FG_YELLOW}; ${BG_RED}m\]"
+    HOSTNAME_SHORT=$(hostname|sed -e 's/^\([^\.]\{0,\}\)\..*$/\1/')
 
-    PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && echo -e \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME}${WHITE} \w ${GREEN}\$([ \"function\" == \"`type -t __git_ps1`\" ] && __git_ps1 "%s") ${NORMAL}\$ ${RESET}"
+    PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && echo -e \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME_SHORT}${WHITE} \w ${GREEN}\$([ \"function\" == \"`type -t __git_ps1`\" ] && __git_ps1 "%s") ${NORMAL}\$ ${RESET}"
     export CLICOLOR=1
 fi
