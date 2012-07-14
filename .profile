@@ -3,6 +3,7 @@
 # Misc. Environment
 # ------------------------------------------
 
+export LANG=en_US.UTF-8
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
 export ANT_HOME=/usr/share/ant
 export GRAILS_HOME="/opt/local/share/java/grails"
@@ -10,7 +11,7 @@ export CATALINA_OPTS="-server -Xmx256m"
 export RABBITMQ_NODENAME='svz-pcn-205'
 export CFLAGS="-O2 -pipe"
 export CXXFLAGS=${CFLAGS}
-export MAKEOPTS="-j2"
+export MAKEOPTS="-j9"
 export PYTHONSTARTUP=~/.pythonstartup
 export M2_REPO=~/.m2
 export ANDROID_HOME=~/Library/android-sdk-macosx
@@ -217,6 +218,11 @@ if [ "$color_prompt" = yes ]; then
     REV_RED="\[$ESC[${DULL};${FG_YELLOW}; ${BG_RED}m\]"
     HOSTNAME_SHORT=$(hostname|sed -e 's/^\([^\.]\{0,\}\)\..*$/\1/')
 
-    PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && echo -e \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME_SHORT}${WHITE} \w ${GREEN}\$([ \"function\" == \"`type -t __git_ps1`\" ] && __git_ps1 "%s") ${NORMAL}\$ ${RESET}"
+    function git_dirty()
+    {
+        [[ "$(git status 2> /dev/null)" =~ "working directory clean" ]] || echo -e " \033[0;31m⚡"
+    }
+
+    PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && echo -e \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME_SHORT}${WHITE} \w ${GREEN}\$([ \"function\" == \"`type -t __git_ps1`\" ] && __git_ps1 "%s"; git_dirty) ${NORMAL}\$ ${RESET}"
     export CLICOLOR=1
 fi
