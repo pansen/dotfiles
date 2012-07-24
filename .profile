@@ -220,7 +220,9 @@ if [ "$color_prompt" = yes ]; then
 
     function git_dirty()
     {
-        [[ "$(git status 2> /dev/null)" =~ "working directory clean" ]] || echo -e " \033[0;31m⚡"
+        exit 0
+        [[ "$(git status 2> /dev/null)" =~ "working directory clean" ]] || \
+            echo -e " $ESC[${DULL};${FG_RED}m⚡$ESC[m"
     }
 
     PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && echo -e \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME_SHORT}${WHITE} \w ${GREEN}\$([ \"function\" == \"`type -t __git_ps1`\" ] && __git_ps1 "%s"; git_dirty) ${NORMAL}\$ ${RESET}"
