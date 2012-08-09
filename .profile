@@ -83,8 +83,10 @@ alias ssh='check_agent; ssh'
 alias ll='ls -l'
 alias la='ls -lAh'
 alias l='ls -CF'
-alias free='top -l 1 | grep Phys'
-alias top='top -o cpu'
+if [[ "$(uname)" == *"Darwin"* ]]; then
+    alias free='top -l 1 | grep Phys'
+    alias top='top -o cpu'
+fi
 alias grep="grep --exclude='all-wcprops' --exclude='*.tmp' --exclude='entries' --exclude='*.svn-base' --exclude='*.svn*' "
 alias meld='/Applications/DiffMerge.app/Contents/MacOS/diffmerge.sh'
 
@@ -228,3 +230,4 @@ if [ "$color_prompt" = yes ]; then
     PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && printf \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME_SHORT}${WHITE} \w ${GREEN}\$([ \"function\" == \"`type -t __git_ps1`\" ] && __git_ps1 "%s"; git_dirty) ${NORMAL}\$ ${RESET}"
     export CLICOLOR=1
 fi
+
