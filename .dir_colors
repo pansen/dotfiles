@@ -203,3 +203,4 @@ EXEC 01;32
 .xspf 00;36
 .DS_Store 01;37
 .pyc 01;37
+.pyo 01;37

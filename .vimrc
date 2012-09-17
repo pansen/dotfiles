@@ -64,7 +64,7 @@ match ErrorMsg '\%>80v.*'
 set scrolloff=15
 
 " rst preview
-:command Rst :!rst2html-2.7.py % > /tmp/rstprev.html && open /tmp/rstprev.html
+:command Rst :!rst2html-2.7.py "%" > /tmp/rstprev.html && open /tmp/rstprev.html
 :nnoremap <C-p><C-r> :Rst<CR>
 
 " markdown (.md) preview

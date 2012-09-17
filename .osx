@@ -87,4 +87,5 @@ defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Fi
 echo "Show the ~/Library folder"
 chflags nohidden ~/Library
 
-
+echo "disable icon bouncing in dock"
+defaults write com.apple.dock no-bouncing -bool TRUE
