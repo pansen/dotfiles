@@ -124,6 +124,8 @@ if [ -f /opt/local/etc/bash_completion ]; then
 fi
 [ -f /opt/local/share/doc/git-core/contrib/completion/git-completion.bash ] \
     && . /opt/local/share/doc/git-core/contrib/completion/git-completion.bash
+[ -f /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh ] \
+    && . /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh
 
 
 # ------------------------------------------
