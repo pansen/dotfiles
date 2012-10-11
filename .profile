@@ -3,6 +3,7 @@
 # Misc. Environment
 # ------------------------------------------
 
+export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
 export ANT_HOME=/usr/share/ant
