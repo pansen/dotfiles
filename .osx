@@ -89,3 +89,8 @@ chflags nohidden ~/Library
 
 echo "disable icon bouncing in dock"
 defaults write com.apple.dock no-bouncing -bool TRUE
+
+
+echo "sudo port -v install bash bash-completion"
+echo "sudo vim /etc/shells"
+echo "chsh -s /opt/local/bin/bash andi"
