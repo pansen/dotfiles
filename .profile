@@ -70,7 +70,6 @@ function check_agent {
          start_agent;
     }
 }
-SSH_ENV="$HOME/.ssh/environment"
 alias ssh='check_agent; ssh'
 
 # If not running interactively, don't do anything
