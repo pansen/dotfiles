@@ -50,6 +50,8 @@ export PATH="$PATH:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Ho
 export PATH=$PATH:~/Library/android-sdk-macosx/tools
 export PATH=$PATH:~/.gem/ruby/1.8/bin
 export PATH=$PATH:"/Applications/VMware Fusion.app/Contents/Library"
+export PATH=$PATH:"${ANDROID_HOME}/platform-tools"
+export PATH=$PATH:"${ANDROID_HOME}/tools"
 
 
 # ------------------------------------------
