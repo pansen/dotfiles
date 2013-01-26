@@ -37,6 +37,7 @@ export CPPFLAGS="-I/opt/local/include"
 # export DYLD_FORCE_FLAT_NAMESPACE=1
 
 export MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=512m"
+PERL_VERSION=$(file `which perl`|awk '{print $5}'|tr -d "\`\'")
 
 
 # ------------------------------------------
@@ -52,6 +53,7 @@ export PATH=$PATH:~/.gem/ruby/1.8/bin
 export PATH=$PATH:"/Applications/VMware Fusion.app/Contents/Library"
 export PATH=$PATH:"${ANDROID_HOME}/platform-tools"
 export PATH=$PATH:"${ANDROID_HOME}/tools"
+export PATH=$PATH:"/opt/local/libexec/$PERL_VERSION/sitebin"
 
 
 # ------------------------------------------
@@ -92,6 +94,10 @@ fi
 alias grep="grep --exclude='all-wcprops' --exclude='*.tmp' --exclude='entries' --exclude='*.svn-base' --exclude='*.svn*' "
 alias meld='/Applications/DiffMerge.app/Contents/MacOS/diffmerge.sh'
 
+# general functions
+function git_diff() {
+    git diff --no-ext-diff -w "$@" | vim -R -
+}
 
 # ------------------------------------------
 # Terminal

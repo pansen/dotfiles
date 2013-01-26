@@ -33,6 +33,10 @@ set enc=utf-8
 :vnoremap <S-Tab> <gv
 
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+" python autocomplete, maybe that one is necessary: http://www.vim.org/scripts/script.php?script_id=1542
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+au BufRead,BufNewFile *.json set filetype=json
 
 " trim tailing space for selected files
 " autocmd BufWritePre *.php,*.py :%s/\s*$//
@@ -41,8 +45,6 @@ let Tlist_Ctags_Cmd='/opt/local/bin/ctags'
 
 " taglist toggle
 map <F3> :TlistToggle<CR>
-" python autocomplete, maybe that one is necessary: http://www.vim.org/scripts/script.php?script_id=1542
-autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 " command-t plugin
 map <F4> :CommandT<CR>
@@ -52,6 +54,10 @@ map <F2> :bnext<CR>      " map F2 to open next buffer
 
 " f8 will hightlight all words under the cursor
 :nnoremap <F8> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+"
+" json formatter, seen:
+" http://visibletrap.blogspot.de/2010/05/vim-how-to-format-and-syntax-highlight.html
+map <leader>jf  <Esc>:%!json_xs -f json -t json-pretty<CR>
 
 " highlight tailing whitespace          
 ":autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
