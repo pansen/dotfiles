@@ -204,3 +204,8 @@ EXEC 01;32
 .DS_Store 01;37
 .pyc 01;37
 .pyo 01;37
+.classpath 01;37
+.project 01;37
+.iml 01;37
+.gitignore 01;37
+.gitmodules 01;37

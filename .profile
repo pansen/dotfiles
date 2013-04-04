@@ -32,6 +32,8 @@ export LIBRARY_PATH=/opt/local/lib
 export DYLD_FALLBACK_LIBRARY_PATH=/opt/local/include:/opt/local/lib
 export CPPFLAGS="-I/opt/local/include"
 
+export PYRAMID_DEBUGTOOLBAR=0
+
 # for https://github.com/sickill/stderred
 # export DYLD_INSERT_LIBRARIES=${HOME}/project/stderred/lib/stderred.dylib 
 # export DYLD_FORCE_FLAT_NAMESPACE=1
