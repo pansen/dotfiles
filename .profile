@@ -136,6 +136,8 @@ fi
     && . /opt/local/share/doc/git-core/contrib/completion/git-completion.bash
 [ -f /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh ] \
     && . /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh
+[ -f /opt/local/share/git-core/git-prompt.sh ] \
+    && . /opt/local/share/git-core/git-prompt.sh
 
 
 # ------------------------------------------
@@ -242,4 +244,3 @@ if [ "$color_prompt" = yes ]; then
     PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && printf \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME_SHORT}${WHITE} \w ${GREEN}\$([ \"function\" == \"`type -t __git_ps1`\" ] && __git_ps1 "%s"; git_dirty) ${NORMAL}\$ ${RESET}"
     export CLICOLOR=1
 fi
-
