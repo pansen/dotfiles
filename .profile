@@ -9,7 +9,6 @@ export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Hom
 export ANT_HOME=/usr/share/ant
 export GRAILS_HOME="/opt/local/share/java/grails"
 export CATALINA_OPTS="-server -Xmx256m"
-export RABBITMQ_NODENAME='svz-pcn-205'
 export CFLAGS="-O2 -pipe"
 export CXXFLAGS=${CFLAGS}
 export MAKEOPTS="-j9"
@@ -39,7 +38,8 @@ export PYRAMID_DEBUGTOOLBAR=0
 # export DYLD_FORCE_FLAT_NAMESPACE=1
 
 export MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=512m"
-PERL_VERSION=$(file `which perl`|awk '{print $5}'|tr -d "\`\'")
+# PERL_VERSION=$(file `which perl`|grep '64'|awk '{print $5}'|tr -d "\`\'")
+PERL_VERSION=5.12
 
 
 # ------------------------------------------
@@ -55,8 +55,7 @@ export PATH=$PATH:~/.gem/ruby/1.8/bin
 export PATH=$PATH:"/Applications/VMware Fusion.app/Contents/Library"
 export PATH=$PATH:"${ANDROID_HOME}/platform-tools"
 export PATH=$PATH:"${ANDROID_HOME}/tools"
-export PATH=$PATH:"/opt/local/libexec/$PERL_VERSION/sitebin"
-
+export PATH=$PATH:"/opt/local/libexec/perl$PERL_VERSION"
 
 # ------------------------------------------
 # convenient ssh handling
