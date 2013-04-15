@@ -75,8 +75,6 @@ function check_agent {
          start_agent;
     }
 }
-alias ssh='check_agent; ssh'
-
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -84,7 +82,7 @@ alias ssh='check_agent; ssh'
 # ------------------------------------------
 # Aliases
 # ------------------------------------------
-
+alias ssh='check_agent; ssh'
 alias ll='ls -l'
 alias la='ls -lAh'
 alias l='ls -CF'
@@ -94,6 +92,7 @@ if [[ "$(uname)" == *"Darwin"* ]]; then
 fi
 alias grep="grep --exclude='all-wcprops' --exclude='*.tmp' --exclude='entries' --exclude='*.svn-base' --exclude='*.svn*' "
 alias meld='/Applications/DiffMerge.app/Contents/MacOS/diffmerge.sh'
+alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 
 # general functions
 function git_diff() {
