@@ -96,6 +96,13 @@ defaults write com.apple.NetworkBrowser DisableAirDrop -boolean YES
 echo "reload Finder"
 killall Finder
 
+echo "use a different timeserver than apple"
+sudo systemsetup -setnetworktimeserver time.krypted.com
+
+echo "enable firewall"
+sudo sysctl -w net.inet.ip.fw.enable=1
+
 echo "sudo port -v install bash bash-completion"
 echo "sudo vim /etc/shells"
 echo "chsh -s /opt/local/bin/bash andi"
+
