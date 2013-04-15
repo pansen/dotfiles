@@ -131,13 +131,12 @@ fi
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
-[ -f /opt/local/share/doc/git-core/contrib/completion/git-completion.bash ] \
-    && . /opt/local/share/doc/git-core/contrib/completion/git-completion.bash
-[ -f /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh ] \
-    && . /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh
-[ -f /opt/local/share/git-core/git-prompt.sh ] \
-    && . /opt/local/share/git-core/git-prompt.sh
 
+GIT_COMPLETION_DIR="/opt/local/share/git-core/contrib/completion"
+[ -f "${GIT_COMPLETION_DIR}/git-completion.bash" ] \
+    && . "${GIT_COMPLETION_DIR}/git-completion.bash"
+[ -f "${GIT_COMPLETION_DIR}/git-prompt.sh" ] \
+    && . "${GIT_COMPLETION_DIR}/git-prompt.sh"
 
 # ------------------------------------------
 # Colors
