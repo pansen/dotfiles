@@ -37,10 +37,8 @@ export PYRAMID_DEBUGTOOLBAR=0
 # export DYLD_INSERT_LIBRARIES=${HOME}/project/stderred/lib/stderred.dylib 
 # export DYLD_FORCE_FLAT_NAMESPACE=1
 
-export MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=512m"
-# PERL_VERSION=$(file `which perl`|grep '64'|awk '{print $5}'|tr -d "\`\'")
-PERL_VERSION=5.12
-
+export MAVEN_OPTS="-Xmx1028m -XX:MaxPermSize=256m"
+PERL_VERSION=$(file `which perl`|grep 'symbolic link'|awk '{print $5}'|tr -d "\`\'")
 
 # ------------------------------------------
 # PATH 
@@ -64,11 +62,13 @@ export PATH=$PATH:"/opt/local/libexec/perl$PERL_VERSION"
 SSHAGENT=$(which ssh-agent)
 SSHADD=$(which ssh-add)
 SSHAGENTARGS="-s -t 21600" # add with lifetime 6h
+SSHADD_ARGS="-t 21600 $HOME/.ssh/id_rsa" # add with lifetime 6h
 function start_agent {
      echo "Initialising new SSH agent..."
+     # eval `${SSHAGENT} ${SSHAGENTARGS}`
      ${SSHAGENT} ${SSHAGENTARGS}
      echo "...success"
-     ${SSHADD};
+     ${SSHADD} ${SSHADD_ARGS}
 }
 function check_agent {
     ps -ef | grep "${SSHAGENT} ${SSHAGENTARGS}$" > /dev/null || {
