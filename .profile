@@ -148,11 +148,11 @@ if [ "$color_prompt" = yes ]; then
         alias ls='/opt/local/libexec/gnubin/ls --color=auto'
     fi
 
+    export LS_OPTIONS='--color=auto'
     GNU_DIRCOLORS="/opt/local/libexec/gnubin/dircolors"
     if [ "$TERM" != "dumb" ] && [ -x $GNU_DIRCOLORS ]; then
         eval $($GNU_DIRCOLORS $HOME/.dir_colors)
 
-        export LS_OPTIONS='--color=auto'
         export CLICOLOR='Yes'
 
         #alias dir='ls --color=auto --format=vertical'
@@ -166,6 +166,9 @@ if [ "$color_prompt" = yes ]; then
         # http://www.napolitopia.com/2010/03/lscolors-in-osx-snow-leopard-for-dummies/
         export LSCOLORS='gxgxfxfxcxdxdxhbadbxbx'
         alias ls='ls -G'
+    fi
+    if [ $(uname -a|grep Linux|wc -l) -gt 0 ]; then
+        alias ls='ls $LS_OPTIONS'
     fi
 
 
