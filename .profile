@@ -137,6 +137,9 @@ GIT_COMPLETION_DIR="/opt/local/share/git-core/contrib/completion"
 [ -f "${GIT_COMPLETION_DIR}/git-prompt.sh" ] \
     && . "${GIT_COMPLETION_DIR}/git-prompt.sh"
 
+
+[ `uname -a|grep Linux|wc -l` -gt 0 ] && is_linux=true || is_linux=false 
+
 # ------------------------------------------
 # Colors
 # install ``sudo port -v install coreutils``
@@ -167,7 +170,7 @@ if [ "$color_prompt" = yes ]; then
         export LSCOLORS='gxgxfxfxcxdxdxhbadbxbx'
         alias ls='ls -G'
     fi
-    if [ $(uname -a|grep Linux|wc -l) -gt 0 ]; then
+    if $is_linux; then
         alias ls='ls $LS_OPTIONS'
     fi
 
@@ -243,4 +246,14 @@ if [ "$color_prompt" = yes ]; then
 
     PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && printf \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME_SHORT}${WHITE} \w ${GREEN}\$([ \"function\" == \"`type -t __git_ps1`\" ] && __git_ps1 "%s"; git_dirty) ${NORMAL}\$ ${RESET}"
     export CLICOLOR=1
+fi
+
+if $is_linux; then
+    if [ "$BASH" ]; then
+      if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+      fi
+    fi
+
+    mesg n 
 fi
