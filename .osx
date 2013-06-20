@@ -18,6 +18,7 @@ defaults write com.apple.Dock orientation -string top
 defaults write com.apple.Safari ApplePersistenceIgnoreState YES
 
 # disable sonderzeichen keyboard behaviour
+# Turn on key repeat
 defaults write -g ApplePressAndHoldEnabled -bool false
 
 # show foldercontents in preview (space action)
@@ -89,6 +90,8 @@ chflags nohidden ~/Library
 
 echo "disable icon bouncing in dock"
 defaults write com.apple.dock no-bouncing -bool TRUE
+echo "disable 3d dock"
+defaults write com.apple.dock no-glass -boolean YES
 
 echo "disable airdrop"
 defaults write com.apple.NetworkBrowser DisableAirDrop -boolean YES
@@ -101,6 +104,30 @@ sudo systemsetup -setnetworktimeserver time.krypted.com
 
 echo "enable firewall"
 sudo sysctl -w net.inet.ip.fw.enable=1
+
+# http://osxdaily.com/2012/08/06/disable-notification-center-remove-menu-bar-icon-os-x/
+echo "disable notification bar in mountain lion"
+launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
+killall NotificationCenter
+
+echo "disable window animations"
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+
+echo "disable smooth scrolling"
+defaults write -g NSScrollAnimationEnabled -bool NO
+
+echo "Enable inertia scrolling"
+defaults write -g AppleMomentumScrollSupported -bool true
+
+echo "disable mission control animation"
+defaults write com.apple.dock expose-animation-duration -float 0
+
+# Make the click-sensitive surface of the resizing-button in the bottom right of windows bigger
+defaults write -g AppleEdgeResizeExteriorSize 10
+
+# Show remaining battery time; hide percentage
+defaults write com.apple.menuextra.battery ShowPercent -string "NO"
+defaults write com.apple.menuextra.battery ShowTime -string "YES"
 
 echo "sudo port -v install bash bash-completion"
 echo "sudo vim /etc/shells"

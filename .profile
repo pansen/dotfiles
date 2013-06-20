@@ -7,6 +7,7 @@ export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
 export ANT_HOME=/usr/share/ant
+export GRADLE_HOME=/opt/local/share/java/gradle
 export GRAILS_HOME="/opt/local/share/java/grails"
 export CATALINA_OPTS="-server -Xmx256m"
 export CFLAGS="-O2 -pipe"
@@ -84,6 +85,7 @@ function check_agent {
 # ------------------------------------------
 alias ssh='check_agent; ssh'
 alias ll='ls -l'
+alias diff='diff -u'
 alias la='ls -lAh'
 alias l='ls -CF'
 if [[ "$(uname)" == *"Darwin"* ]]; then
@@ -129,6 +131,10 @@ if [ -f /etc/bash_completion ]; then
 fi
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
+fi
+# https://trac.macports.org/wiki/howto/bash-completion
+if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+    . /opt/local/etc/profile.d/bash_completion.sh
 fi
 
 GIT_COMPLETION_DIR="/opt/local/share/git-core/contrib/completion"
