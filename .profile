@@ -7,6 +7,7 @@ export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
 export ANT_HOME=/usr/share/ant
+export GRADLE_HOME=/opt/local/share/java/gradle
 export GRAILS_HOME="/opt/local/share/java/grails"
 export CATALINA_OPTS="-server -Xmx256m"
 export CFLAGS="-O2 -pipe"
@@ -37,10 +38,8 @@ export PYRAMID_DEBUGTOOLBAR=0
 # export DYLD_INSERT_LIBRARIES=${HOME}/project/stderred/lib/stderred.dylib 
 # export DYLD_FORCE_FLAT_NAMESPACE=1
 
-export MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=512m"
-# PERL_VERSION=$(file `which perl`|grep '64'|awk '{print $5}'|tr -d "\`\'")
-PERL_VERSION=5.12
-
+export MAVEN_OPTS="-Xmx1028m -XX:MaxPermSize=256m"
+PERL_VERSION=$(file `which perl`|grep 'symbolic link'|awk '{print $5}'|tr -d "\`\'")
 
 # ------------------------------------------
 # PATH 
@@ -64,19 +63,19 @@ export PATH=$PATH:"/opt/local/libexec/perl$PERL_VERSION"
 SSHAGENT=$(which ssh-agent)
 SSHADD=$(which ssh-add)
 SSHAGENTARGS="-s -t 21600" # add with lifetime 6h
+SSHADD_ARGS="-t 21600 $HOME/.ssh/id_rsa" # add with lifetime 6h
 function start_agent {
      echo "Initialising new SSH agent..."
+     # eval `${SSHAGENT} ${SSHAGENTARGS}`
      ${SSHAGENT} ${SSHAGENTARGS}
      echo "...success"
-     ${SSHADD};
+     ${SSHADD} ${SSHADD_ARGS}
 }
 function check_agent {
     ps -ef | grep "${SSHAGENT} ${SSHAGENTARGS}$" > /dev/null || {
          start_agent;
     }
 }
-alias ssh='check_agent; ssh'
-
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -84,8 +83,9 @@ alias ssh='check_agent; ssh'
 # ------------------------------------------
 # Aliases
 # ------------------------------------------
-
+alias ssh='check_agent; ssh'
 alias ll='ls -l'
+alias diff='diff -u'
 alias la='ls -lAh'
 alias l='ls -CF'
 if [[ "$(uname)" == *"Darwin"* ]]; then
@@ -94,6 +94,7 @@ if [[ "$(uname)" == *"Darwin"* ]]; then
 fi
 alias grep="grep --exclude='all-wcprops' --exclude='*.tmp' --exclude='entries' --exclude='*.svn-base' --exclude='*.svn*' "
 alias meld='/Applications/DiffMerge.app/Contents/MacOS/diffmerge.sh'
+alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 
 # general functions
 function git_diff() {
@@ -131,13 +132,19 @@ fi
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
-[ -f /opt/local/share/doc/git-core/contrib/completion/git-completion.bash ] \
-    && . /opt/local/share/doc/git-core/contrib/completion/git-completion.bash
-[ -f /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh ] \
-    && . /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh
-[ -f /opt/local/share/git-core/git-prompt.sh ] \
-    && . /opt/local/share/git-core/git-prompt.sh
+# https://trac.macports.org/wiki/howto/bash-completion
+if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+    . /opt/local/etc/profile.d/bash_completion.sh
+fi
 
+GIT_COMPLETION_DIR="/opt/local/share/git-core/contrib/completion"
+[ -f "${GIT_COMPLETION_DIR}/git-completion.bash" ] \
+    && . "${GIT_COMPLETION_DIR}/git-completion.bash"
+[ -f "${GIT_COMPLETION_DIR}/git-prompt.sh" ] \
+    && . "${GIT_COMPLETION_DIR}/git-prompt.sh"
+
+
+[ `uname -a|grep Linux|wc -l` -gt 0 ] && is_linux=true || is_linux=false 
 
 # ------------------------------------------
 # Colors
@@ -150,11 +157,11 @@ if [ "$color_prompt" = yes ]; then
         alias ls='/opt/local/libexec/gnubin/ls --color=auto'
     fi
 
+    export LS_OPTIONS='--color=auto'
     GNU_DIRCOLORS="/opt/local/libexec/gnubin/dircolors"
     if [ "$TERM" != "dumb" ] && [ -x $GNU_DIRCOLORS ]; then
         eval $($GNU_DIRCOLORS $HOME/.dir_colors)
 
-        export LS_OPTIONS='--color=auto'
         export CLICOLOR='Yes'
 
         #alias dir='ls --color=auto --format=vertical'
@@ -168,6 +175,9 @@ if [ "$color_prompt" = yes ]; then
         # http://www.napolitopia.com/2010/03/lscolors-in-osx-snow-leopard-for-dummies/
         export LSCOLORS='gxgxfxfxcxdxdxhbadbxbx'
         alias ls='ls -G'
+    fi
+    if $is_linux; then
+        alias ls='ls $LS_OPTIONS'
     fi
 
 
@@ -242,4 +252,14 @@ if [ "$color_prompt" = yes ]; then
 
     PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && printf \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME_SHORT}${WHITE} \w ${GREEN}\$([ \"function\" == \"`type -t __git_ps1`\" ] && __git_ps1 "%s"; git_dirty) ${NORMAL}\$ ${RESET}"
     export CLICOLOR=1
+fi
+
+if $is_linux; then
+    if [ "$BASH" ]; then
+      if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+      fi
+    fi
+
+    mesg n 
 fi
