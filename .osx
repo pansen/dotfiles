@@ -96,6 +96,11 @@ defaults write com.apple.NetworkBrowser DisableAirDrop -boolean YES
 echo "reload Finder"
 killall Finder
 
+echo "set screenshot path to ~/Pictures"
+defaults write com.apple.screencapture location ~/Pictures/
+killall SystemUIServer
+
+
 echo "sudo port -v install bash bash-completion"
 echo "sudo vim /etc/shells"
 echo "chsh -s /opt/local/bin/bash andi"
