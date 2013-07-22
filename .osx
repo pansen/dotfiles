@@ -100,6 +100,10 @@ defaults write com.apple.NetworkBrowser DisableAirDrop -boolean YES
 echo "reload Finder"
 killall Finder
 
+echo "set screenshot path to ~/Pictures"
+defaults write com.apple.screencapture location ~/Pictures/
+killall SystemUIServer
+
 echo "use a different timeserver than apple"
 sudo systemsetup -setnetworktimeserver time.krypted.com
 
@@ -123,8 +127,24 @@ defaults write -g AppleMomentumScrollSupported -bool true
 echo "disable mission control animation"
 defaults write com.apple.dock expose-animation-duration -float 0
 
+# Menu bar: disable transparency
+defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+
+# Set highlight color to green
+defaults write NSGlobalDomain AppleHighlightColor -string '0.764700 0.976500 0.568600'
+
 # Make the click-sensitive surface of the resizing-button in the bottom right of windows bigger
 defaults write -g AppleEdgeResizeExteriorSize 10
+
+# Save to disk (not to iCloud) by default
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+# Automatically quit printer app once the print jobs complete
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+# Increase sound quality for Bluetooth headphones/headsets
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+# Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
+defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
 # Show remaining battery time; hide percentage
 defaults write com.apple.menuextra.battery ShowPercent -string "NO"
@@ -134,3 +154,10 @@ echo "sudo port -v install bash bash-completion"
 echo "sudo vim /etc/shells"
 echo "chsh -s /opt/local/bin/bash andi"
 
+# Set computer name (as done via System Preferences → Sharing)
+# sudo scutil --set ComputerName "MathBook Pro"
+# sudo scutil --set HostName "MathBook Pro"
+# sudo scutil --set LocalHostName "MathBook-Pro"
+# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "MathBook-Pro"
+
+#https://github.com/mathiasbynens/dotfiles/blob/master/.osx
