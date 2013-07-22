@@ -95,6 +95,7 @@ fi
 alias grep="grep --exclude='all-wcprops' --exclude='*.tmp' --exclude='entries' --exclude='*.svn-base' --exclude='*.svn*' "
 alias meld='/Applications/DiffMerge.app/Contents/MacOS/diffmerge.sh'
 alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
+alias q="$(which qlmanage) -p "
 
 # general functions
 function git_diff() {
