@@ -31,6 +31,7 @@ export CPATH=/opt/local/include
 export LIBRARY_PATH=/opt/local/lib
 export DYLD_FALLBACK_LIBRARY_PATH=/opt/local/include:/opt/local/lib
 export CPPFLAGS="-I/opt/local/include"
+# export CC="$(xcode-select --print-path)/usr/bin/cpp"
 
 export PYRAMID_DEBUGTOOLBAR=0
 
