@@ -111,9 +111,9 @@ echo "enable firewall"
 sudo sysctl -w net.inet.ip.fw.enable=1
 
 # http://osxdaily.com/2012/08/06/disable-notification-center-remove-menu-bar-icon-os-x/
-echo "disable notification bar in mountain lion"
-launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
-killall NotificationCenter
+# echo "disable notification bar in mountain lion"
+# launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
+# killall NotificationCenter
 
 echo "disable window animations"
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false

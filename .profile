@@ -20,6 +20,7 @@ export PIP_DOWNLOAD_CACHE=$HOME/Library/Caches/pip-downloads
 
 # history management
 export HISTCONTROL=ignoredups
+export HISTTIMEFORMAT="%d/%m/%y %T "
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 export HISTSIZE=10000
 
