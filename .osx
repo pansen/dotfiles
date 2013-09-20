@@ -105,7 +105,7 @@ defaults write com.apple.screencapture location ~/Pictures/
 killall SystemUIServer
 
 echo "use a different timeserver than apple"
-sudo systemsetup -setnetworktimeserver time.krypted.com
+sudo systemsetup -setnetworktimeserver 2.de.pool.ntp.org
 
 echo "enable firewall"
 sudo sysctl -w net.inet.ip.fw.enable=1
