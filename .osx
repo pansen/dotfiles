@@ -161,3 +161,7 @@ echo "chsh -s /opt/local/bin/bash andi"
 # sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "MathBook-Pro"
 
 #https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+
+echo "disable mobile backup (timemachine local)"
+sudo tmutil disablelocal
+
