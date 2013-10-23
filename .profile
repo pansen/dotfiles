@@ -2,13 +2,14 @@
 # ------------------------------------------
 # Misc. Environment
 # ------------------------------------------
+export PORTS_PREFIX=/opt/local
 
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
 export ANT_HOME=/usr/share/ant
-export GRADLE_HOME=/opt/local/share/java/gradle
-export GRAILS_HOME="/opt/local/share/java/grails"
+export GRADLE_HOME=$PORTS_PREFIX/share/java/gradle
+export GRAILS_HOME="$PORTS_PREFIX/share/java/grails"
 export CATALINA_OPTS="-server -Xmx256m"
 export CFLAGS="-O2 -pipe"
 export CXXFLAGS=${CFLAGS}
@@ -26,12 +27,12 @@ export HISTSIZE=10000
 
 export EDITOR=vim
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
-export C_INCLUDE_PATH=/opt/local/include
-export CXX_INCLUDE_PATH=/opt/local/include
-export CPATH=/opt/local/include
-export LIBRARY_PATH=/opt/local/lib
-export DYLD_FALLBACK_LIBRARY_PATH=/opt/local/include:/opt/local/lib
-export CPPFLAGS="-I/opt/local/include"
+export C_INCLUDE_PATH=$PORTS_PREFIX/include
+export CXX_INCLUDE_PATH=$PORTS_PREFIX/include
+export CPATH=$PORTS_PREFIX/include
+export LIBRARY_PATH=$PORTS_PREFIX/lib
+export DYLD_FALLBACK_LIBRARY_PATH=$PORTS_PREFIX/include:$PORTS_PREFIX/lib
+export CPPFLAGS="-I$PORTS_PREFIX/include"
 # export CC="$(xcode-select --print-path)/usr/bin/cpp"
 
 export PYRAMID_DEBUGTOOLBAR=0
@@ -48,15 +49,15 @@ PERL_VERSION=$(file `which perl`|grep 'symbolic link'|awk '{print $5}'|tr -d "\`
 # ------------------------------------------
 
 export PATH="~/bin:$PATH"
-export PATH="/opt/local/bin:$PATH"
-export PATH="/opt/local/sbin:$PATH"
+export PATH="$PORTS_PREFIX/bin:$PATH"
+export PATH="$PORTS_PREFIX/sbin:$PATH"
 export PATH="$PATH:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/bin"
 export PATH=$PATH:~/Library/android-sdk-macosx/tools
 export PATH=$PATH:~/.gem/ruby/1.8/bin
 export PATH=$PATH:"/Applications/VMware Fusion.app/Contents/Library"
 export PATH=$PATH:"${ANDROID_HOME}/platform-tools"
 export PATH=$PATH:"${ANDROID_HOME}/tools"
-export PATH=$PATH:"/opt/local/libexec/perl$PERL_VERSION"
+export PATH=$PATH:"$PORTS_PREFIX/libexec/perl$PERL_VERSION"
 
 # ------------------------------------------
 # convenient ssh handling
@@ -113,7 +114,7 @@ function git_diff() {
 shopt -s checkwinsize
 
 # sudo port -v install lesspipe
-[ -x /opt/local/bin/lesspipe.sh ] && eval "$(lesspipe.sh)"
+[ -x $PORTS_PREFIX/bin/lesspipe.sh ] && eval "$(lesspipe.sh)"
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -132,15 +133,15 @@ esac
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
-if [ -f /opt/local/etc/bash_completion ]; then
-    . /opt/local/etc/bash_completion
+if [ -f $PORTS_PREFIX/etc/bash_completion ]; then
+    . $PORTS_PREFIX/etc/bash_completion
 fi
 # https://trac.macports.org/wiki/howto/bash-completion
-if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
-    . /opt/local/etc/profile.d/bash_completion.sh
+if [ -f $PORTS_PREFIX/etc/profile.d/bash_completion.sh ]; then
+    . $PORTS_PREFIX/etc/profile.d/bash_completion.sh
 fi
 
-GIT_COMPLETION_DIR="/opt/local/share/git-core/contrib/completion"
+GIT_COMPLETION_DIR="$PORTS_PREFIX/share/git-core/contrib/completion"
 [ -f "${GIT_COMPLETION_DIR}/git-completion.bash" ] \
     && . "${GIT_COMPLETION_DIR}/git-completion.bash"
 [ -f "${GIT_COMPLETION_DIR}/git-prompt.sh" ] \
@@ -155,13 +156,13 @@ GIT_COMPLETION_DIR="/opt/local/share/git-core/contrib/completion"
 # ------------------------------------------
 
 if [ "$color_prompt" = yes ]; then
-    GNU_LS="/opt/local/libexec/gnubin/ls"
+    GNU_LS="$PORTS_PREFIX/libexec/gnubin/ls"
     if [ "$TERM" != "dumb" ] && [ -x $GNU_LS ]; then
-        alias ls='/opt/local/libexec/gnubin/ls --color=auto'
+        alias ls='$PORTS_PREFIX/libexec/gnubin/ls --color=auto'
     fi
 
     export LS_OPTIONS='--color=auto'
-    GNU_DIRCOLORS="/opt/local/libexec/gnubin/dircolors"
+    GNU_DIRCOLORS="$PORTS_PREFIX/libexec/gnubin/dircolors"
     if [ "$TERM" != "dumb" ] && [ -x $GNU_DIRCOLORS ]; then
         eval $($GNU_DIRCOLORS $HOME/.dir_colors)
 
