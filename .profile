@@ -2,7 +2,7 @@
 # ------------------------------------------
 # Misc. Environment
 # ------------------------------------------
-export PORTS_PREFIX=/opt/local
+export PORTS_PREFIX=$HOME/macports
 
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
