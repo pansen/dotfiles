@@ -7,6 +7,9 @@ to ``~`` cause otherwise all folders in HOME are recognized as git repo.
 Install ``macports`` In Your Home (Working With Mavericks)
 ----------------------------------------------------------
 
+*update*: quiet a few ports do not compile. probably its a better idea to keep
+the ports from lion or mountain lion. 
+
 - install the latest xcode 
 - open the latest xcode once
 - install macports::

@@ -2,7 +2,14 @@
 # ------------------------------------------
 # Misc. Environment
 # ------------------------------------------
-export PORTS_PREFIX=$HOME/macports
+if [ "10.9" == `/usr/bin/sw_vers|grep ProductVersion|awk '{print $2}'` ];then
+  export PORTS_PREFIX=/opt/mavericks/local
+else
+  export PORTS_PREFIX=/opt/local
+fi
+# hack for local usage
+# export PORTS_PREFIX=$HOME/macports
+export PORTS_PREFIX=/opt/local
 
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
