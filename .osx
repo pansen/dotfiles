@@ -146,18 +146,15 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 # Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
-# Show remaining battery time; hide percentage
-defaults write com.apple.menuextra.battery ShowPercent -string "NO"
-defaults write com.apple.menuextra.battery ShowTime -string "YES"
+# Show remaining battery percentage (on mavericks, there seems to be no more time)
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+defaults write com.apple.menuextra.battery ShowTime -string "NO"
 
 # http://www.macworld.com/article/1164668/select_and_copy_text_within_quick_look_previews.html
 echo "enable selection in quickview"
 defaults write com.apple.finder QLEnableTextSelection -bool TRUE 
+echo "reload Finder"
 killall Finder
-
-echo "sudo port -v install bash bash-completion"
-echo "sudo vim /etc/shells"
-echo "chsh -s /opt/local/bin/bash andi"
 
 # Set computer name (as done via System Preferences → Sharing)
 # sudo scutil --set ComputerName "MathBook Pro"
