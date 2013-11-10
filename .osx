@@ -150,6 +150,11 @@ defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 defaults write com.apple.menuextra.battery ShowPercent -string "NO"
 defaults write com.apple.menuextra.battery ShowTime -string "YES"
 
+# http://www.macworld.com/article/1164668/select_and_copy_text_within_quick_look_previews.html
+echo "enable selection in quickview"
+defaults write com.apple.finder QLEnableTextSelection -bool TRUE 
+killall Finder
+
 echo "sudo port -v install bash bash-completion"
 echo "sudo vim /etc/shells"
 echo "chsh -s /opt/local/bin/bash andi"
