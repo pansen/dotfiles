@@ -7,4 +7,4 @@ port -v install coreutils bash bash-completion nmap ngrep htop vnstat apple-gcc4
 port -v install vim +python27
 
 echo "sudo vim /etc/shells"
-echo "chsh -s /opt/local/bin/bash andi"
+echo "chsh -s /opt/local/bin/bash $USER"
