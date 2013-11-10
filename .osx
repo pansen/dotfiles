@@ -160,10 +160,16 @@ killall Finder
 
 # https://github.com/chockenberry/Provisioning
 echo "learn Quicklook to handle Mobileprovision files"
+provisioning_version="1.0.2"
+cd /tmp/
+curl -L https://github.com/chockenberry/Provisioning/releases/download/${provisioning_version}/Provisioning-${provisioning_version}.zip -O
+cd -
 mkdir -p ${HOME}/Library/Quickview
 cd ${HOME}/Library/Quickview
-curl -L https://github.com/chockenberry/Provisioning/archive/1.0.2.tar.gz|tar xzv
+unzip /tmp/Provisioning-${provisioning_version}.zip 
+rm -f /tmp/Provisioning-${provisioning_version}.zip
 cd -
+qlmanage -r
 
 # Set computer name (as done via System Preferences → Sharing)
 # sudo scutil --set ComputerName "MathBook Pro"
