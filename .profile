@@ -2,14 +2,16 @@
 # ------------------------------------------
 # Misc. Environment
 # ------------------------------------------
-if [ "10.9" == `/usr/bin/sw_vers|grep ProductVersion|awk '{print $2}'` ];then
-  export PORTS_PREFIX=/opt/mavericks/local
+if [ "Darwin" == "$(uname)" ]; then
+    SW_VERS=$(which sw_vers)
+    if [ -x $SW_VERS ] && [ "10.9" == `$SW_VERS|grep ProductVersion|awk '{print $2}'` ];then
+      export PORTS_PREFIX=/opt/local
+    else
+      export PORTS_PREFIX=/opt/local
+    fi
 else
-  export PORTS_PREFIX=/opt/local
+    export PORTS_PREFIX=/usr/local
 fi
-# hack for local usage
-# export PORTS_PREFIX=$HOME/macports
-export PORTS_PREFIX=/opt/local
 
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -106,6 +108,7 @@ alias grep="grep --exclude='all-wcprops' --exclude='*.tmp' --exclude='entries' -
 alias meld='/Applications/DiffMerge.app/Contents/MacOS/diffmerge.sh'
 alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 alias q="$(which qlmanage) -p "
+alias git-activity='git for-each-ref --sort=-committerdate refs/heads/|head -n28'
 
 # general functions
 function git_diff() {
