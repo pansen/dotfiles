@@ -32,7 +32,7 @@ export PIP_DOWNLOAD_CACHE=$HOME/Library/Caches/pip-downloads
 export HISTCONTROL=ignoredups
 export HISTTIMEFORMAT="%d/%m/%y %T "
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
-export HISTSIZE=10000
+export HISTSIZE=100000
 
 export EDITOR=vim
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
