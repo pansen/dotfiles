@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 port -v install ffmpeg +nonfree 
 port -v install mplayer +smb +mencoder_extras +a52 +aa +noappleremote +osd
 port -v install git-core +bash_completion +credential_osxkeychain +svn
