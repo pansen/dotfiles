@@ -15,6 +15,9 @@ fi
 
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
+# set JDK for PyCharm and stuff: 
+# https://intellij-support.jetbrains.com/entries/23455956-Selecting-the-JDK-version-the-IDE-will-run-under
+# install java 1.7
 # http://stackoverflow.com/a/19737307/3093179
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home"
 export ANT_HOME=/usr/share/ant
