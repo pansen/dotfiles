@@ -44,7 +44,9 @@ export C_INCLUDE_PATH=$PORTS_PREFIX/include
 export CXX_INCLUDE_PATH=$PORTS_PREFIX/include
 export CPATH=$PORTS_PREFIX/include
 export LIBRARY_PATH=$PORTS_PREFIX/lib
-export DYLD_FALLBACK_LIBRARY_PATH=$PORTS_PREFIX/include:$PORTS_PREFIX/lib
+# this seems to be a bad idea
+# http://stackoverflow.com/questions/20915752/oserror-dlopenlibsystem-dylib-6-image-not-found-os-x-macports-celery
+# export DYLD_FALLBACK_LIBRARY_PATH=$PORTS_PREFIX/include:$PORTS_PREFIX/lib
 export CPPFLAGS="-I$PORTS_PREFIX/include"
 # export CC="$(xcode-select --print-path)/usr/bin/cpp"
 
