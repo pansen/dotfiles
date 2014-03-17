@@ -29,7 +29,7 @@ export CXXFLAGS=${CFLAGS}
 export MAKEOPTS="-j9"
 export PYTHONSTARTUP=~/.pythonstartup
 export M2_REPO=~/.m2
-export ANDROID_HOME=~/Library/android-sdk-macosx
+export ANDROID_HOME=/Library/Android/sdk
 export PIP_DOWNLOAD_CACHE=$HOME/Library/Caches/pip-downloads
 
 # history management
