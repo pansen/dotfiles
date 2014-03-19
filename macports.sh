@@ -2,6 +2,7 @@
 set -e
 port -v install coreutils bash bash-completion apg tree grep rsync watch
 port -v install python27
+port -v install py27-docutils
 port -v install vim +python27
 port -v install git-core +bash_completion +credential_osxkeychain +svn
 port -v install nmap ngrep htop vnstat iftop libyaml ImageMagick
