@@ -5,6 +5,7 @@ port -v install python27
 port -v install py27-docutils
 port -v install vim +python27
 port -v install git-core +bash_completion +credential_osxkeychain +svn
+port -v install the_silver_searcher
 port -v install nmap ngrep htop vnstat iftop bmon libyaml ImageMagick
 port -v install apple-gcc42 cmake gnupg
 port -v install ffmpeg +nonfree 
