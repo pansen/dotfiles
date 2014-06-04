@@ -13,6 +13,7 @@ else
     export PORTS_PREFIX=/usr/local
 fi
 
+export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
 # set JDK for PyCharm and stuff: 
@@ -74,6 +75,7 @@ export PATH=$PATH:"/Applications/VMware Fusion.app/Contents/Library"
 export PATH=$PATH:"${ANDROID_HOME}/platform-tools"
 export PATH=$PATH:"${ANDROID_HOME}/tools"
 export PATH=$PATH:"$PORTS_PREFIX/libexec/perl$PERL_VERSION"
+export PATH=$PATH:"$HOME/homebrew/bin"
 
 # ------------------------------------------
 # convenient ssh handling

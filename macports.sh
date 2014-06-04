@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-port -v install coreutils bash bash-completion apg tree grep rsync watch
+port -v install coreutils bash bash-completion apg tree grep rsync watch jq
 port -v install python27
 port -v install py27-docutils
 port -v install vim +python27
