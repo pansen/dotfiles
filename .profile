@@ -2,15 +2,15 @@
 # ------------------------------------------
 # Misc. Environment
 # ------------------------------------------
-if [ "Darwin" == "$(uname)" ]; then
+if [ "Darwin"=="$(uname)" ]; then
     SW_VERS=$(which sw_vers)
-    if [ -x $SW_VERS ] && [ "10.9" == `$SW_VERS|grep ProductVersion|awk '{print $2}'` ];then
+    if [ -x $SW_VERS ] && [ "10.9"==`$SW_VERS|grep ProductVersion|awk '{print $2}'` ];then
       export PORTS_PREFIX=/opt/local
     else
       export PORTS_PREFIX=/opt/local
     fi
 else
-    export PORTS_PREFIX=/usr/local
+    export PORTS_PREFIX=/usr
 fi
 
 export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
@@ -26,7 +26,7 @@ export GRADLE_HOME=$PORTS_PREFIX/share/java/gradle
 export GRAILS_HOME="$PORTS_PREFIX/share/java/grails"
 export CATALINA_OPTS="-server -Xmx256m"
 export CFLAGS="-O2 -pipe"
-export CXXFLAGS=${CFLAGS}
+export CXXFLAGS="${CFLAGS}"
 export MAKEOPTS="-j9"
 export PYTHONSTARTUP=~/.pythonstartup
 export M2_REPO=~/.m2
@@ -72,10 +72,10 @@ export PATH="$PATH:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Ho
 export PATH=$PATH:~/Library/android-sdk-macosx/tools
 export PATH=$PATH:~/.gem/ruby/1.8/bin
 export PATH=$PATH:"/Applications/VMware Fusion.app/Contents/Library"
-export PATH=$PATH:"${ANDROID_HOME}/platform-tools"
-export PATH=$PATH:"${ANDROID_HOME}/tools"
-export PATH=$PATH:"$PORTS_PREFIX/libexec/perl$PERL_VERSION"
-export PATH=$PATH:"$HOME/homebrew/bin"
+export PATH="$PATH":"${ANDROID_HOME}/platform-tools"
+export PATH="$PATH":"${ANDROID_HOME}/tools"
+export PATH="$PATH":"$PORTS_PREFIX/libexec/perl$PERL_VERSION"
+export PATH="$PATH":"$HOME/homebrew/bin"
 
 # ------------------------------------------
 # convenient ssh handling
@@ -85,14 +85,16 @@ SSHAGENT=$(which ssh-agent)
 SSHADD=$(which ssh-add)
 SSHAGENTARGS="-s -t 21600" # add with lifetime 6h
 SSHADD_ARGS="-t 21600 $HOME/.ssh/id_rsa" # add with lifetime 6h
-function start_agent {
+start_agent() 
+{
      echo "Initialising new SSH agent..."
      # eval `${SSHAGENT} ${SSHAGENTARGS}`
      ${SSHAGENT} ${SSHAGENTARGS}
      echo "...success"
      ${SSHADD} ${SSHADD_ARGS}
 }
-function check_agent {
+check_agent() 
+{
     ps -ef | grep "${SSHAGENT} ${SSHAGENTARGS}$" > /dev/null || {
          start_agent;
     }
@@ -109,7 +111,7 @@ alias ll='ls -l'
 alias diff='diff -u'
 alias la='ls -lAh'
 alias l='ls -CF'
-if [[ "$(uname)" == *"Darwin"* ]]; then
+if [ "$(uname)"==*"Darwin"* ]; then
     alias free='top -l 1 | grep Phys'
     alias top='top -o cpu'
 fi
@@ -120,7 +122,8 @@ alias q="$(which qlmanage) -p "
 alias git-activity='git for-each-ref --sort=-committerdate refs/heads/|head -n28'
 
 # general functions
-function git_diff() {
+git_diff() 
+{
     git diff --no-ext-diff -w "$@" | vim -R -
 }
 
@@ -128,6 +131,7 @@ function git_diff() {
 # Terminal
 # ------------------------------------------
 
+return
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
