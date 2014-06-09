@@ -44,7 +44,7 @@ fi
 # Aliases
 # ------------------------------------------
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+    source ~/.bash_aliases
 fi
 
 # general functions
