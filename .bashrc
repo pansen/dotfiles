@@ -12,6 +12,7 @@ SSHAGENT=$(which ssh-agent)
 SSHADD=$(which ssh-add)
 SSHAGENTARGS="-s -t 21600" # add with lifetime 6h
 SSHADD_ARGS="-t 21600 $HOME/.ssh/id_rsa" # add with lifetime 6h
+
 start_agent()
 {
      echo "Initialising new SSH agent..."
@@ -45,20 +46,6 @@ fi
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-alias ssh='check_agent; ssh'
-alias ll='ls -l'
-alias diff='diff -u'
-alias la='ls -lAh'
-alias l='ls -CF'
-if [ "$(uname)"==*"Darwin"* ]; then
-    alias free='top -l 1 | grep Phys'
-    alias top='top -o cpu'
-fi
-alias grep="grep --exclude='all-wcprops' --exclude='*.tmp' --exclude='entries' --exclude='*.svn-base' --exclude='*.svn*' "
-alias meld='/Applications/DiffMerge.app/Contents/MacOS/diffmerge.sh'
-alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
-alias q="$(which qlmanage) -p "
-alias git-activity='git for-each-ref --sort=-committerdate refs/heads/|head -n28'
 
 # general functions
 git_diff()
@@ -70,7 +57,6 @@ git_diff()
 # Terminal
 # ------------------------------------------
 
-return
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -129,13 +115,6 @@ if [ "$color_prompt" = yes ]; then
         eval $($GNU_DIRCOLORS $HOME/.dir_colors)
 
         export CLICOLOR='Yes'
-
-        #alias dir='ls --color=auto --format=vertical'
-        #alias vdir='ls --color=auto --format=long'
-
-        #alias grep='grep --color=auto'
-        #alias fgrep='fgrep --color=auto'
-        #alias egrep='egrep --color=auto'
     else
         # set dircolors for osx native fileutils
         # http://www.napolitopia.com/2010/03/lscolors-in-osx-snow-leopard-for-dummies/
@@ -218,14 +197,4 @@ if [ "$color_prompt" = yes ]; then
 
     PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && printf \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME_SHORT}${WHITE} \w ${GREEN}\$([ \"function\" == \"`type -t __git_ps1`\" ] && __git_ps1 "%s"; git_dirty) ${NORMAL}\$ ${RESET}"
     export CLICOLOR=1
-fi
-
-if $is_linux; then
-    if [ "$BASH" ]; then
-      if [ -f ~/.bashrc ]; then
-        . ~/.bashrc
-      fi
-    fi
-
-    mesg n
 fi

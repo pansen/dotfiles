@@ -1,4 +1,3 @@
-
 # ------------------------------------------
 # Misc. Environment
 # ------------------------------------------
@@ -12,6 +11,9 @@ if [ "Darwin"=="$(uname)" ]; then
 else
     export PORTS_PREFIX=/usr
 fi
+
+export EDITOR=vim
+export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 
 export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 export LC_CTYPE=en_US.UTF-8
@@ -33,8 +35,6 @@ export M2_REPO=~/.m2
 export ANDROID_HOME=/Library/Android/sdk
 export PIP_DOWNLOAD_CACHE=$HOME/Library/Caches/pip-downloads
 
-export EDITOR=vim
-export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export C_INCLUDE_PATH=$PORTS_PREFIX/include
 export CXX_INCLUDE_PATH=$PORTS_PREFIX/include
 export CPATH=$PORTS_PREFIX/include
