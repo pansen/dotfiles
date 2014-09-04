@@ -11,6 +11,7 @@ port -v install apple-gcc42 cmake gnupg
 port -v install ffmpeg +nonfree 
 port -v install mplayer +smb +mencoder_extras +a52 +aa +noappleremote +osd
 port -v install testdisk
+port -v install dos2unix unix2dos
 
 echo "sudo vim /etc/shells"
 echo "chsh -s /opt/local/bin/bash $USER"
