@@ -13,6 +13,8 @@ SSHADD=$(which ssh-add)
 SSHAGENTARGS="-s -t 21600" # add with lifetime 6h
 SSHADD_ARGS="-t 21600 $HOME/.ssh/id_rsa" # add with lifetime 6h
 
+[ $(ps axu|grep 'gpg-agent --daemon'|grep -v grep|wc -l) -eq 0 ] && eval $(gpg-agent --daemon)
+
 start_agent()
 {
      echo "Initialising new SSH agent..."
