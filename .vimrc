@@ -41,7 +41,8 @@ au BufRead,BufNewFile *.json set filetype=json
 " trim tailing space for selected files
 " autocmd BufWritePre *.php,*.py :%s/\s*$//
 
-let Tlist_Ctags_Cmd='/opt/local/bin/ctags'
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+let $Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 
 " taglist toggle
 map <F3> :TlistToggle<CR>
