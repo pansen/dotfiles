@@ -1,4 +1,4 @@
-alias ssh='check_agent; ssh'
+# alias ssh='check_agent; ssh'
 alias ll='ls -l'
 alias diff='diff -u'
 alias la='ls -lAh'
