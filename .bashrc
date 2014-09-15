@@ -7,29 +7,18 @@ export HISTSIZE=100000
 # ------------------------------------------
 # convenient ssh handling
 # ------------------------------------------
+# https://wiki.archlinux.org/index.php/GnuPG#gpg-agent
+gpg_envfile="$HOME/.gnupg/gpg-agent.env"
+GPG_AGENT_OPTIONS=" --enable-ssh-support --default-cache-ttl-ssh 7200 --max-cache-ttl-ssh 14400 --write-env-file ${gpg_envfile}"
+if [[ -e "$gpg_envfile" ]] && kill -0 $(grep GPG_AGENT_INFO "$gpg_envfile" | cut -d: -f 2) 2>/dev/null; then
+    eval "$(cat "$gpg_envfile")"
+else
+    eval "$(gpg-agent --daemon --enable-ssh-support --write-env-file "$gpg_envfile")"
+fi
+export GPG_AGENT_INFO  # the env file does not contain the export statement
+export SSH_AUTH_SOCK   # enable gpg-agent for ssh
+# [ $(ps axu|grep 'gpg-agent --daemon'|grep -v grep|wc -l) -eq 0 ] && eval $(gpg-agent --daemon $GPG_AGENT_OPTIONS)
 
-SSHAGENT=$(which ssh-agent)
-SSHADD=$(which ssh-add)
-SSHAGENTARGS="-s -t 21600" # add with lifetime 6h
-SSHADD_ARGS="-t 21600 $HOME/.ssh/id_rsa" # add with lifetime 6h
-
-GPG_AGENT_OPTIONS=" --enable-ssh-support --default-cache-ttl-ssh 7200 --max-cache-ttl-ssh 14400"
-[ $(ps axu|grep 'gpg-agent --daemon'|grep -v grep|wc -l) -eq 0 ] && eval $(gpg-agent --daemon $GPG_AGENT_OPTIONS)
-
-start_agent()
-{
-     echo "Initialising new SSH agent..."
-     # eval `${SSHAGENT} ${SSHAGENTARGS}`
-     ${SSHAGENT} ${SSHAGENTARGS}
-     echo "...success"
-     ${SSHADD} ${SSHADD_ARGS}
-}
-check_agent()
-{
-    ps -ef | grep "${SSHAGENT} ${SSHAGENTARGS}$" > /dev/null || {
-         start_agent;
-    }
-}
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 # If not running interactively, don't do anything
