@@ -8,8 +8,12 @@ export HISTSIZE=100000
 # convenient ssh handling
 # ------------------------------------------
 # https://wiki.archlinux.org/index.php/GnuPG#gpg-agent
+# http://www.swissunixsupport.com/mactips
+# 
+# also install GPGTools for mac to get this net ``pinentry-mac`` application:
+# https://github.com/GPGTools/pinentry-mac
 gpg_envfile="$HOME/.gnupg/gpg-agent.env"
-GPG_AGENT_OPTIONS=" --enable-ssh-support --default-cache-ttl-ssh 7200 --max-cache-ttl-ssh 14400 --write-env-file ${gpg_envfile}"
+GPG_AGENT_OPTIONS=" --use-standard-socket --enable-ssh-support --default-cache-ttl-ssh 7200 --max-cache-ttl-ssh 14400 --write-env-file ${gpg_envfile}"
 if [[ -e "$gpg_envfile" ]] && kill -0 $(grep GPG_AGENT_INFO "$gpg_envfile" | cut -d: -f 2) 2>/dev/null; then
     eval "$(cat "$gpg_envfile")"
 else
