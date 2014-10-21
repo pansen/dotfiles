@@ -185,6 +185,9 @@ if [ "$color_prompt" = yes ]; then
     REV_RED="\[$ESC[${DULL};${FG_YELLOW}; ${BG_RED}m\]"
     HOSTNAME_SHORT=$(hostname|sed -e 's/^\([^\.]\{0,\}\)\..*$/\1/')
 
+    # background
+    BG_BLACK="\w\[\033[${DULL};${FG_NULL};${BG_BLACK}m\]"
+
     function git_dirty()
     {
         exit 0
