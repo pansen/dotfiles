@@ -13,7 +13,7 @@ else
 fi
 
 export EDITOR=vim
-export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
+export GREP_COLOR='1;32'
 
 # export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 export LC_CTYPE=en_US.UTF-8
