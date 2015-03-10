@@ -22,6 +22,7 @@ export LANG=en_US.UTF-8
 # https://intellij-support.jetbrains.com/entries/23455956-Selecting-the-JDK-version-the-IDE-will-run-under
 # install java 1.7
 # http://stackoverflow.com/a/19737307/3093179
+# http://stackoverflow.com/a/18144853/2741111
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home"
 export ANT_HOME=/usr/share/ant
 export GRADLE_HOME=$PORTS_PREFIX/share/java/gradle
@@ -32,7 +33,7 @@ export CXXFLAGS="${CFLAGS}"
 export MAKEOPTS="-j9"
 export PYTHONSTARTUP=~/.pythonstartup
 export M2_REPO=~/.m2
-export ANDROID_HOME=/Library/Android/sdk
+export ANDROID_HOME=/Library/Android/android-sdk-mac_x86
 export PIP_DOWNLOAD_CACHE=$HOME/Library/Caches/pip-downloads
 
 export C_INCLUDE_PATH=$PORTS_PREFIX/include
