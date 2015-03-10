@@ -30,6 +30,10 @@ defaults write com.apple.finder QLEnableXRayFolders -boolean yes
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
 
 defaults write com.apple.screencapture type jpg
+mkdir ~/Desktop/Screenshot
+echo "set screenshot path to ~/Desktop/Screenshot"
+defaults write com.apple.screencapture location ~/Desktop/Screenshot/
+killall SystemUIServer
 
 # ipv6 stuff
 # sudo su -c echo "net.inet6.ip6.use_tempaddr=1" >> /etc/sysctl.conf
@@ -101,10 +105,6 @@ defaults write com.apple.NetworkBrowser DisableAirDrop -boolean YES
 
 echo "reload Finder"
 killall Finder
-
-echo "set screenshot path to ~/Pictures"
-defaults write com.apple.screencapture location ~/Pictures/
-killall SystemUIServer
 
 echo "use a different timeserver than apple"
 sudo systemsetup -setnetworktimeserver 2.de.pool.ntp.org
