@@ -8,6 +8,8 @@ if [ "Darwin"=="$(uname)" ]; then
     else
       export PORTS_PREFIX=/opt/local
     fi
+    # only export this on mac, should not be required in linux
+    export MAGICK_HOME=$PORTS_PREFIX
 else
     export PORTS_PREFIX=/usr
 fi
