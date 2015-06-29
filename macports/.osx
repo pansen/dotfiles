@@ -65,6 +65,10 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool NO
 # Increase window resize speed for Cocoa applications
 # defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 defaults write -g NSWindowResizeTime -float 0.003
+# opening and closing Quick Look windows 
+defaults write -g QLPanelAnimationDuration -float 0
+# showing a toolbar or menu bar in full screen
+defaults write -g NSToolbarFullScreenAnimationDuration -float 0
 
 echo "Avoid creating .DS_Store files on network volumes"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
