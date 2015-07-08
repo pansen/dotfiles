@@ -187,3 +187,6 @@ qlmanage -r
 echo "disable mobile backup (timemachine local)"
 sudo tmutil disablelocal
 
+echo "keep the wifi connected, even if the computer is locked"
+sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport en0 prefs DisconnectOnLogout=NO
+
