@@ -190,3 +190,7 @@ sudo tmutil disablelocal
 echo "keep the wifi connected, even if the computer is locked"
 sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport en0 prefs DisconnectOnLogout=NO
 
+# avoid annoying meesages about missing java even though we might have a newer java
+sudo mkdir -p /System/Library/Java/JavaVirtualMachines/1.6.0.jdk
+sudo mkdir -p /System/Library/Java/Support/Deploy.bundle
+
