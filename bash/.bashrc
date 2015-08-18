@@ -9,7 +9,7 @@ export HISTSIZE=100000
 # ------------------------------------------
 # https://wiki.archlinux.org/index.php/GnuPG#gpg-agent
 # http://www.swissunixsupport.com/mactips
-# 
+#
 # also install GPGTools for mac to get this net ``pinentry-mac`` application:
 # https://github.com/GPGTools/pinentry-mac
 gpg_envfile="$HOME/.gnupg/gpg-agent.env"
@@ -188,13 +188,20 @@ if [ "$color_prompt" = yes ]; then
     # background
     BG_BLACK="\w\[\033[${DULL};${FG_NULL};${BG_BLACK}m\]"
 
-    function git_dirty()
+    function git_branch()
     {
-        exit 0
-        [[ "$(git status 2> /dev/null)" =~ "working directory clean" ]] || \
-            echo -e " $ESC[${DULL};${FG_RED}m⚡$ESC[m"
+        [ \"function\" == \"`type -t __git_ps1`\" ] || return 0
+
+        local BRANCH="$(__git_ps1 '%s')"
+        [ "$BRANCH" == "" ] && echo -e " \c" && return 0
+
+        if [[ "$(git status 2> /dev/null)" =~ "working directory clean" ]]; then
+            echo -e " $ESC[${DULL};${FG_GREEN}m${BRANCH} \c"
+        else
+            echo -e " $ESC[${DULL};${FG_YELLOW}m${BRANCH} \c"
+        fi
     }
 
-    PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && printf \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME_SHORT}${WHITE} \w ${YELLOW}\$([ \"function\" == \"`type -t __git_ps1`\" ] && __git_ps1 "%s"; git_dirty) ${NORMAL}\$ ${RESET}"
+    PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && printf \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME_SHORT}${WHITE} \w\$(git_branch)${NORMAL}\$ ${RESET}"
     export CLICOLOR=1
 fi
