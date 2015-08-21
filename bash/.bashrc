@@ -193,15 +193,15 @@ if [ "$color_prompt" = yes ]; then
         [ \"function\" == \"`type -t __git_ps1`\" ] || return 0
 
         local BRANCH="$(__git_ps1 '%s')"
-        [ "$BRANCH" == "" ] && echo -e " \c" && return 0
+        [ "$BRANCH" == "" ] && printf " " && return 0
 
         if [[ "$(git status 2> /dev/null)" =~ "working directory clean" ]]; then
-            echo -e " $ESC[${DULL};${FG_GREEN}m${BRANCH} \c"
+            printf "${BRIGHT_GREEN}${BRANCH}${WHITE} "
         else
-            echo -e " $ESC[${DULL};${FG_YELLOW}m${BRANCH} \c"
+            printf "${BRIGHT_YELLOW}${BRANCH}${WHITE} "
         fi
     }
 
-    PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && printf \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME_SHORT}${WHITE} \w\$(git_branch)${NORMAL}\$ ${RESET}"
+    PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && printf \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME_SHORT}${WHITE} \w $(git_branch)\$ "
     export CLICOLOR=1
 fi
