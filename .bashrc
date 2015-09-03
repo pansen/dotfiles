@@ -196,12 +196,13 @@ if [ "$color_prompt" = yes ]; then
         [ "$BRANCH" == "" ] && printf " " && return 0
 
         if [[ "$(git status 2> /dev/null)" =~ "working directory clean" ]]; then
-            printf "${BRIGHT_GREEN}${BRANCH}${WHITE} "
+            # thanks to https://github.com/michaeldfallen/git-radar/blob/master/prompt.bash
+            printf "\x01\033[1;32m\x02${BRANCH} \x01\033[0m\x02"
         else
-            printf "${BRIGHT_YELLOW}${BRANCH}${WHITE} "
+            printf "\x01\033[1;33m\x02${BRANCH} \x01\033[0m\x02"
         fi
     }
 
-    PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && printf \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME_SHORT}${WHITE} \w $(git_branch)\$ "
+    PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && printf \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME_SHORT}${WHITE} \w \$(git_branch)\$ "
     export CLICOLOR=1
 fi
