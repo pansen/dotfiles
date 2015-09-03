@@ -67,7 +67,6 @@ export PATH="$PORTS_PREFIX/sbin:$PATH"
 export PATH="$PATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin"
 export PATH="$PATH:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/bin"
 export PATH=$PATH:~/Library/android-sdk-macosx/tools
-export PATH=$PATH:~/.gem/ruby/1.8/bin
 export PATH=$PATH:"/Applications/VMware Fusion.app/Contents/Library"
 export PATH="$PATH":"${ANDROID_HOME}/platform-tools"
 export PATH="$PATH":"${ANDROID_HOME}/tools"
