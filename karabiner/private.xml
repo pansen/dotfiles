@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<root>
+	<deviceproductdef>
+    <productname>SCULPT_COMFORT</productname>
+    <productid>0x07a2</productid>
+  </deviceproductdef>
+
+    <item>
+        <name>Disable Command+M</name>
+        <appendix>Disable Command+M for "Minimize to Dock" and to a "Hide" instead</appendix>
+        <identifier>private.app_disable_minimize</identifier>
+        <autogen>--KeyToKey-- KeyCode::M, VK_COMMAND, KeyCode::H, VK_COMMAND</autogen>
+    </item>
+
+  <!--
+    - https://github.com/midnightsalesman/sulptcomfortKarabiner/blob/6605d3aece6db1b9dfd3d57874d4f1eafd44e7f1/private.xml
+    - https://www.reddit.com/r/osx/comments/2vozkq/anyone_use_the_ms_sculpt_comfort_mouse_on_latest/
+  -->
+  <item>
+    <name>Mouse Middle Button to Mouse Button 3 (Microsoft Sculpt Mobile Mouse)</name>
+    <identifier>com.microsoft.mouse.sculpt_mobile.win_button</identifier>
+    <device_only>DeviceVendor::MICROSOFT,DeviceProduct::SCULPT_COMFORT</device_only>
+    <autogen>
+      __KeyToKey__
+      PointingButton::MIDDLE,
+      KeyCode::VK_MOUSEKEY_BUTTON_BUTTON4
+    </autogen>
+  </item>
+
+   <item>
+     <name>Windows Button to Expose Control(Microsoft Sculpt Comfort Mouse)</name>
+     <identifier>com.microsoft.mouse.sculpt_comfort.scroll_middle</identifier>
+     <device_only>DeviceVendor::MICROSOFT,DeviceProduct::SCULPT_COMFORT</device_only>
+     <autogen>
+       __KeyToKey__
+       KeyCode::COMMAND_L,
+       KeyCode::MISSION_CONTROL,
+     </autogen>
+   </item>
+
+     <item>
+     <name>Scroll Left to Backward (Microsoft Sculpt Comfort Mouse)</name>
+     <identifier>com.microsoft.mouse.sculpt_comfort.scroll_left</identifier>
+     <device_only>DeviceVendor::MICROSOFT,DeviceProduct::SCULPT_COMFORT</device_only>
+     <autogen>
+       __ScrollWheelToKey__
+       ScrollWheel::LEFT,
+       KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L
+     </autogen>
+   </item>
+
+   <item>
+     <name>Scroll Right to Forward (Microsoft Sculpt Comfort Mouse)</name>
+     <identifier>com.microsoft.mouse.sculpt_comfort.scroll_right</identifier>
+     <device_only>DeviceVendor::MICROSOFT,DeviceProduct::SCULPT_COMFORT</device_only>
+     <autogen>
+       __ScrollWheelToKey__
+       ScrollWheel::RIGHT,
+       KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L
+     </autogen>
+   </item>
+
+</root>
