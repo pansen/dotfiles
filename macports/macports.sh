@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 port -v install python27
+port -v install python35
 port -v install coreutils bash bash-completion stow
 port -v install tree grep rsync watch jq pv
 port -v install apg gpg-agent
