@@ -29,7 +29,6 @@ export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJD
 export ANT_HOME=/usr/share/ant
 export GRADLE_HOME=$PORTS_PREFIX/share/java/gradle
 export GRAILS_HOME="$PORTS_PREFIX/share/java/grails"
-export CATALINA_OPTS="-server -Xmx256m"
 export CFLAGS="-O2 -pipe"
 export CXXFLAGS="${CFLAGS}"
 export MAKEOPTS="-j9"
@@ -54,7 +53,8 @@ export PYRAMID_DEBUGTOOLBAR=0
 # export DYLD_INSERT_LIBRARIES=${HOME}/project/stderred/lib/stderred.dylib
 # export DYLD_FORCE_FLAT_NAMESPACE=1
 
-export MAVEN_OPTS="-Xmx1028m -XX:MaxPermSize=256m"
+export JAVA_OPTS="-Xms256m -Xmx2048m -XX:MaxPermSize=1024m" 
+export MAVEN_OPTS="-Xms256m -Xmx2048m -XX:MaxPermSize=1024m"
 PERL_VERSION=$(file `which perl`|grep 'symbolic link'|awk '{print $5}'|tr -d "\`\'")
 
 # ------------------------------------------
