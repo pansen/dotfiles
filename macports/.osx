@@ -194,3 +194,6 @@ sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Res
 sudo mkdir -p /System/Library/Java/JavaVirtualMachines/1.6.0.jdk
 sudo mkdir -p /System/Library/Java/Support/Deploy.bundle
 
+launchctl unload -w /System/Library/LaunchAgents/com.apple.gamed.plist
+launchctl unload -w /System/Library/LaunchAgents/com.apple.helpd.plist
+
