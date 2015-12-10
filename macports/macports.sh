@@ -17,6 +17,7 @@ port -v install mplayer +smb +mencoder_extras +a52 +aa +noappleremote +osd
 port -v install testdisk
 port -v install dos2unix 
 port -v install go
+port -v install postgresql94 +python
 port -v install pandoc xmlstarlet jq
 port -v install mutt +compress
 
