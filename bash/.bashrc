@@ -4,6 +4,15 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 export HISTSIZE=100000
 
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+
 # ------------------------------------------
 # convenient ssh handling
 # ------------------------------------------
@@ -23,13 +32,6 @@ export GPG_AGENT_INFO  # the env file does not contain the export statement
 export SSH_AUTH_SOCK   # enable gpg-agent for ssh
 # [ $(ps axu|grep 'gpg-agent --daemon'|grep -v grep|wc -l) -eq 0 ] && eval $(gpg-agent --daemon $GPG_AGENT_OPTIONS)
 
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
