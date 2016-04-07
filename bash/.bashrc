@@ -22,14 +22,21 @@ esac
 # also install GPGTools for mac to get this net ``pinentry-mac`` application:
 # https://github.com/GPGTools/pinentry-mac
 gpg_envfile="$HOME/.gnupg/gpg-agent.env"
-GPG_AGENT_OPTIONS=" --use-standard-socket --enable-ssh-support --default-cache-ttl-ssh 7200 --max-cache-ttl-ssh 14400 --write-env-file ${gpg_envfile}"
+GPG_AGENT_OPTIONS=" --daemon --use-standard-socket --enable-ssh-support --default-cache-ttl-ssh 7200 --max-cache-ttl-ssh 14400 --write-env-file ${gpg_envfile}"
 if [[ -e "$gpg_envfile" ]] && kill -0 $(grep GPG_AGENT_INFO "$gpg_envfile" | cut -d: -f 2) 2>/dev/null; then
+    # echo "use existing $gpg_envfile"
     eval "$(cat "$gpg_envfile")"
 else
-    eval "$(gpg-agent --daemon --enable-ssh-support --write-env-file "$gpg_envfile")"
+    # echo "start new process for $gpg_envfile ..."
+    eval "$(gpg-agent $GPG_AGENT_OPTIONS)"
 fi
+
+# TODO: for some reason the terminal will not find that socket, if defined as `/Users/andi/.gnupg/S.gpg-agent:68389:1`
+# to solve it, we cut off the last part
+GPG_AGENT_INFO=`echo $GPG_AGENT_INFO | sed -E 's/:.*$//g'`
 export GPG_AGENT_INFO  # the env file does not contain the export statement
 export SSH_AUTH_SOCK   # enable gpg-agent for ssh
+export GET_TTY=`tty`
 # [ $(ps axu|grep 'gpg-agent --daemon'|grep -v grep|wc -l) -eq 0 ] && eval $(gpg-agent --daemon $GPG_AGENT_OPTIONS)
 
 
