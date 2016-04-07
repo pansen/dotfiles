@@ -2,6 +2,8 @@
 set -e
 port -v install python27
 port -v install python35
+port -v install elixir
+port -v install nvim 
 port -v install coreutils bash bash-completion stow realpath
 port -v install tree grep rsync watch jq pv
 port -v install apg gpg-agent
@@ -9,6 +11,7 @@ port -v install duplicity duply
 port -v install py27-docutils
 port -v install vim +python27
 port -v install git +bash_completion +svn -credential_osxkeychain
+port -v install colordiff
 port -v install the_silver_searcher
 port -v install nmap ngrep htop vnstat iftop bmon libyaml ImageMagick lnav
 port -v install cmake gnupg
@@ -21,6 +24,9 @@ port -v install go
 port -v install postgresql94 +python
 port -v install pandoc xmlstarlet jq
 port -v install mutt +compress
+# for http://keepass.info/download/p_macosx/index.html
+# also install http://www.xquartz.org/
+port -v install mono
 
 echo "sudo vim /etc/shells"
 echo "chsh -s /opt/local/bin/bash $USER"
