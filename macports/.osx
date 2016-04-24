@@ -62,11 +62,6 @@ echo "Disable auto-correct"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool NO
 
-# Increase window resize speed for Cocoa applications
-# defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
-defaults write -g NSWindowResizeTime -float 0.003
-# opening and closing Quick Look windows 
-defaults write -g QLPanelAnimationDuration -float 0
 # showing a toolbar or menu bar in full screen
 defaults write -g NSToolbarFullScreenAnimationDuration -float 0
 
@@ -122,9 +117,6 @@ sudo sysctl -w net.inet.ip.fw.enable=1
 # launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
 # killall NotificationCenter
 
-echo "disable window animations"
-defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
-
 echo "disable smooth scrolling"
 defaults write -g NSScrollAnimationEnabled -bool NO
 
@@ -157,11 +149,34 @@ defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 defaults write com.apple.menuextra.battery ShowTime -string "NO"
 
+
+# https://www.linkedin.com/pulse/turning-os-x-1011-el-capitan-speed-deamon-patrick-mullins
+
+# Disable opening and closing window animations.
+echo "disable window animations"
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+
+# opening and closing Quick Look windows
+# Disable the animations for opening Quick Look windows.
+defaults write -g QLPanelAnimationDuration -float 0
+
+# Increase window resize speed for Cocoa applications.
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+# Disable window animations and Get Info animations in the Finder.
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+# Remove the Dock auto-hide delay.
+defaults write com.apple.Dock autohide-delay -float 0
+
+
+
 # http://www.macworld.com/article/1164668/select_and_copy_text_within_quick_look_previews.html
 echo "enable selection in quickview"
-defaults write com.apple.finder QLEnableTextSelection -bool TRUE 
+defaults write com.apple.finder QLEnableTextSelection -bool TRUE
 echo "reload Finder"
 killall Finder
+
 
 # https://github.com/chockenberry/Provisioning
 echo "learn Quicklook to handle Mobileprovision files"
@@ -171,7 +186,7 @@ curl -L https://github.com/chockenberry/Provisioning/releases/download/${provisi
 cd -
 mkdir -p ${HOME}/Library/Quickview
 cd ${HOME}/Library/Quickview
-unzip /tmp/Provisioning-${provisioning_version}.zip 
+unzip /tmp/Provisioning-${provisioning_version}.zip
 rm -f /tmp/Provisioning-${provisioning_version}.zip
 cd -
 qlmanage -r
