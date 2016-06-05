@@ -3,7 +3,6 @@ set -e
 port -v install python27
 port -v install python35
 port -v install elixir
-port -v install nvim 
 port -v install coreutils bash bash-completion stow realpath
 port -v install tree grep rsync watch jq pv
 port -v install apg gpg-agent
@@ -18,10 +17,11 @@ port -v install cmake gnupg
 port -v install openssh
 port -v install ffmpeg +nonfree 
 port -v install mplayer +smb +mencoder_extras +a52 +aa +noappleremote +osd
+port -v install mkvtoolnix +wxwidgets
 port -v install testdisk
 port -v install dos2unix 
 port -v install go
-port -v install postgresql94 +python
+port -v install postgresql95 +python
 port -v install pandoc xmlstarlet jq
 port -v install mutt +compress
 # for http://keepass.info/download/p_macosx/index.html
