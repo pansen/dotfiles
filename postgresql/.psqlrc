@@ -2,6 +2,8 @@
 \set QUIET 1
 \pset null '¤'
 
+\pset pager off
+
 -- Customize prompts
 -- \set PROMPT1 '%[%033[1m%][%/] # '
 \set PROMPT1 '%[%033[33;1m%]%x%[%033[0m%]%[%033[1m%]%/%[%033[0m%]%R%# '
