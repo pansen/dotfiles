@@ -14,7 +14,7 @@ else
     export PORTS_PREFIX=/usr
 fi
 
-export EDITOR=vim
+export EDITOR=subl
 export GREP_COLOR='1;32'
 
 # export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
