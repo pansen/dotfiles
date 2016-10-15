@@ -14,7 +14,7 @@ else
     export PORTS_PREFIX=/usr
 fi
 
-export EDITOR=vim
+export EDITOR=subl
 export GREP_COLOR='1;32'
 
 # export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
@@ -64,6 +64,7 @@ PERL_VERSION=$(file `which perl`|grep 'symbolic link'|awk '{print $5}'|tr -d "\`
 export PATH="~/bin:$PATH"
 export PATH="$PORTS_PREFIX/bin:$PATH"
 export PATH="$PORTS_PREFIX/sbin:$PATH"
+export PATH="$PATH:/opt/local/Library/Frameworks/Python.framework/Versions/3.5/bin/"
 export PATH="$PATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin"
 export PATH="$PATH:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/bin"
 export PATH=$PATH:~/Library/android-sdk-macosx/tools
@@ -73,3 +74,5 @@ export PATH="$PATH":"${ANDROID_HOME}/tools"
 export PATH="$PATH":"$PORTS_PREFIX/libexec/perl$PERL_VERSION"
 export PATH="$PATH":"$HOME/homebrew/bin"
 export PATH="$PATH":"$HOME/.cargo/bin"
+
+export PATH="$HOME/.cargo/bin:$PATH"

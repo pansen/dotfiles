@@ -23,6 +23,8 @@ port -v install mplayer +smb +mencoder_extras +a52 +aa +noappleremote +osd
 port -v install mkvtoolnix +wxwidgets
 port -v install testdisk
 port -v install dos2unix 
+# iperf -c 10.0.0.20 -fM -t100
+port -v install iperf
 port -v install go
 port -v install qemu
 port -v install postgresql95 +python
