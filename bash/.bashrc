@@ -1,6 +1,22 @@
 # history management
 export HISTCONTROL=ignoredups
 export HISTTIMEFORMAT="%d/%m/%y %T "
+
+function timer_start {
+  timer=${timer:-$SECONDS}
+}
+function timer_stop {
+  timer_show=$(($SECONDS - $timer))
+  unset timer
+}
+trap 'timer_start' DEBUG
+
+if [ "$PROMPT_COMMAND" == "" ]; then
+  PROMPT_COMMAND="timer_stop"
+else
+  PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
+fi
+
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 export HISTSIZE=100000
 
@@ -212,6 +228,6 @@ if [ "$color_prompt" = yes ]; then
         fi
     }
 
-    PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && printf \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME_SHORT}${WHITE} \w \$(git_branch)\$ "
+    PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && printf \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME_SHORT}${WHITE} \w \$(git_branch)\${timer_show} \$ "
     export CLICOLOR=1
 fi
