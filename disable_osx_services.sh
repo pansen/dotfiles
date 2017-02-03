@@ -38,11 +38,13 @@ TODISABLE=( \
 
 for agent in "${TODISABLE[@]}"
 do
-    sudo launchctl unload -w /System/Library/LaunchAgents/${agent}.plist
-    launchctl unload -w /System/Library/LaunchAgents/${agent}.plist
-    echo "[OK] Agent ${agent} Disabled"
+	if [ -f /System/Library/LaunchAgents/${agent}.plist ]; then
+	    sudo launchctl unload -w /System/Library/LaunchAgents/${agent}.plist
+	    launchctl unload -w /System/Library/LaunchAgents/${agent}.plist
+	    echo "[OK] Agent ${agent} Disabled"
+	fi
 done
-
+exit 0
 
 # Daemons to disable
 TODISABLE=( \
@@ -72,9 +74,11 @@ TODISABLE=( \
 
 for daemon in "${TODISABLE[@]}"
 do
-    sudo launchctl unload -w /System/Library/LaunchDaemons/${daemon}.plist
-    launchctl unload -w /System/Library/LaunchDaemons/${daemon}.plist
-    echo "[OK] Daemon ${daemon} Disabled"
+	if [ -f /System/Library/LaunchDaemons/${agent}.plist ]; then
+	    sudo launchctl unload -w /System/Library/LaunchDaemons/${daemon}.plist
+	    launchctl unload -w /System/Library/LaunchDaemons/${daemon}.plist
+	    echo "[OK] Daemon ${daemon} Disabled"
+	fi
 done
 
 
