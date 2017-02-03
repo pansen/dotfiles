@@ -217,3 +217,7 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.helpd.plist
 
 echo "enable option to install applications from anywhere"
 sudo spctl --master-disable
+
+# https://github.com/thewebsitenursery/OS-X-Security-and-Privacy-Guide#captive-portal
+echo "disable captive portal app"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.captive.control Active -bool false
