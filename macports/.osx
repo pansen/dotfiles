@@ -214,3 +214,6 @@ sudo mkdir -p /System/Library/Java/Support/Deploy.bundle
 launchctl unload -w /System/Library/LaunchAgents/com.apple.gamed.plist
 launchctl unload -w /System/Library/LaunchAgents/com.apple.helpd.plist
 
+
+echo "enable option to install applications from anywhere"
+sudo spctl --master-disable
