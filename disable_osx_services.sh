@@ -7,32 +7,15 @@
 
 # Agents to disable
 TODISABLE=( \
-	'com.apple.photoanalysisd' \
-	'com.apple.telephonyutilities.callservicesd' \
 	'com.apple.familycircled' \
 	'com.apple.familycontrols.useragent' \
 	'com.apple.familynotificationd' \
 	'com.apple.gamed' \
 	'com.apple.icloud.findmydeviced.findmydevice-user-agent' \
 	'com.apple.cloudfamilyrestrictionsd-mac' \
-	'com.apple.cloudphotosd' \
-	'com.apple.cloudpaird' \
-	'com.apple.assistant_service' \
-	'com.apple.CallHistorySyncHelper' \
-	'com.apple.CallHistoryPluginHelper' \
-	'com.apple.AOSPushRelay' \
 	'com.apple.geodMachServiceBridge' \
-	'com.apple.syncdefaultsd' \
-	'com.apple.security.cloudkeychainproxy3' \
-	'com.apple.security.idskeychainsyncingproxy' \
-	'com.apple.security.keychain-circle-notification' \
-	'com.apple.cloudd' \
-	'com.apple.assistantd' \
 	'com.apple.parentalcontrols.check' \
 	'com.apple.parsecd' \
-	'com.apple.sharingd' \
-	'com.apple.CommCenter-osx' \
-	'com.apple.identityservicesd' \
 	)
 
 
@@ -44,30 +27,22 @@ do
 	    echo "[OK] Agent ${agent} Disabled"
 	fi
 done
-exit 0
+
 
 # Daemons to disable
 TODISABLE=( \
-	'com.apple.preferences.timezone.admintool' \
 	'com.apple.remotepairtool' \
 	'com.apple.rpmuxd' \
-	'com.apple.security.FDERecoveryAgent' \
 	'com.apple.icloud.findmydeviced' \
 	'com.apple.findmymacmessenger' \
 	'com.apple.familycontrols' \
 	'com.apple.findmymac' \
 	'com.apple.screensharing' \
-	'com.apple.apsd' \
-	'com.apple.AOSNotificationOSX' \
-	'com.apple.FileSyncAgent.sshd' \
 	'com.apple.ManagedClient.cloudconfigurationd' \
 	'com.apple.ManagedClient.enroll' \
 	'com.apple.ManagedClient' \
 	'com.apple.ManagedClient.startup' \
-	'com.apple.iCloudStats' \
 	'com.apple.locationd' \
-	'com.apple.mbicloudsetupd' \
-	'com.apple.awacsd' \
 	'com.apple.familycontrols' \
 	)
 
