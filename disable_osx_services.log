@@ -1,0 +1,107 @@
+andi pansen ~/p/cashboard/provision master 3 $  ~/.dotfiles/disable_osx_services.sh 
+Password:
+/System/Library/LaunchAgents/com.apple.photoanalysisd.plist: Could not find specified service
+[OK] Agent com.apple.photoanalysisd Disabled
+/System/Library/LaunchAgents/com.apple.telephonyutilities.callservicesd.plist: Could not find specified service
+[OK] Agent com.apple.telephonyutilities.callservicesd Disabled
+/System/Library/LaunchAgents/com.apple.familycircled.plist: Could not find specified service
+[OK] Agent com.apple.familycircled Disabled
+/System/Library/LaunchAgents/com.apple.familycontrols.useragent.plist: Could not find specified service
+[OK] Agent com.apple.familycontrols.useragent Disabled
+/System/Library/LaunchAgents/com.apple.familynotificationd.plist: Could not find specified service
+[OK] Agent com.apple.familynotificationd Disabled
+/System/Library/LaunchAgents/com.apple.gamed.plist: Could not find specified service
+[OK] Agent com.apple.gamed Disabled
+/System/Library/LaunchAgents/com.apple.icloud.findmydeviced.findmydevice-user-agent.plist: Could not find specified service
+[OK] Agent com.apple.icloud.findmydeviced.findmydevice-user-agent Disabled
+[OK] Agent com.apple.cloudfamilyrestrictionsd-mac Disabled
+/System/Library/LaunchAgents/com.apple.cloudphotosd.plist: Could not find specified service
+[OK] Agent com.apple.cloudphotosd Disabled
+/System/Library/LaunchAgents/com.apple.assistant_service.plist: Could not find specified service
+[OK] Agent com.apple.assistant_service Disabled
+/System/Library/LaunchAgents/com.apple.CallHistorySyncHelper.plist: Could not find specified service
+[OK] Agent com.apple.CallHistorySyncHelper Disabled
+/System/Library/LaunchAgents/com.apple.CallHistoryPluginHelper.plist: Could not find specified service
+[OK] Agent com.apple.CallHistoryPluginHelper Disabled
+/System/Library/LaunchAgents/com.apple.AOSPushRelay.plist: Could not find specified service
+[OK] Agent com.apple.AOSPushRelay Disabled
+/System/Library/LaunchAgents/com.apple.geodMachServiceBridge.plist: Could not find specified service
+/System/Library/LaunchAgents/com.apple.geodMachServiceBridge.plist: Operation not permitted while System Integrity Protection is engaged
+[OK] Agent com.apple.geodMachServiceBridge Disabled
+/System/Library/LaunchAgents/com.apple.syncdefaultsd.plist: Could not find specified service
+/System/Library/LaunchAgents/com.apple.syncdefaultsd.plist: Could not find specified service
+[OK] Agent com.apple.syncdefaultsd Disabled
+/System/Library/LaunchAgents/com.apple.security.cloudkeychainproxy3.plist: Could not find specified service
+/System/Library/LaunchAgents/com.apple.security.cloudkeychainproxy3.plist: Could not find specified service
+[OK] Agent com.apple.security.cloudkeychainproxy3 Disabled
+/System/Library/LaunchAgents/com.apple.security.idskeychainsyncingproxy.plist: Could not find specified service
+/System/Library/LaunchAgents/com.apple.security.idskeychainsyncingproxy.plist: Operation not permitted while System Integrity Protection is engaged
+[OK] Agent com.apple.security.idskeychainsyncingproxy Disabled
+/System/Library/LaunchAgents/com.apple.security.keychain-circle-notification.plist: Could not find specified service
+/System/Library/LaunchAgents/com.apple.security.keychain-circle-notification.plist: Operation not permitted while System Integrity Protection is engaged
+[OK] Agent com.apple.security.keychain-circle-notification Disabled
+/System/Library/LaunchAgents/com.apple.cloudd.plist: Could not find specified service
+[OK] Agent com.apple.cloudd Disabled
+/System/Library/LaunchAgents/com.apple.assistantd.plist: Could not find specified service
+[OK] Agent com.apple.assistantd Disabled
+/System/Library/LaunchAgents/com.apple.parentalcontrols.check.plist: Could not find specified service
+[OK] Agent com.apple.parentalcontrols.check Disabled
+/System/Library/LaunchAgents/com.apple.parsecd.plist: Could not find specified service
+/System/Library/LaunchAgents/com.apple.parsecd.plist: Operation not permitted while System Integrity Protection is engaged
+[OK] Agent com.apple.parsecd Disabled
+/System/Library/LaunchAgents/com.apple.identityservicesd.plist: Could not find specified service
+[OK] Agent com.apple.identityservicesd Disabled
+/System/Library/LaunchDaemons/com.apple.preferences.timezone.admintool.plist: Could not find specified service
+[OK] Daemon com.apple.preferences.timezone.admintool Disabled
+/System/Library/LaunchDaemons/com.apple.remotepairtool.plist: Could not find specified service
+[OK] Daemon com.apple.remotepairtool Disabled
+/System/Library/LaunchDaemons/com.apple.rpmuxd.plist: No such file or directory
+/System/Library/LaunchDaemons/com.apple.rpmuxd.plist: No such file or directory
+[OK] Daemon com.apple.rpmuxd Disabled
+/System/Library/LaunchDaemons/com.apple.security.FDERecoveryAgent.plist: Could not find specified service
+/System/Library/LaunchDaemons/com.apple.security.FDERecoveryAgent.plist: Could not find specified service
+[OK] Daemon com.apple.security.FDERecoveryAgent Disabled
+/System/Library/LaunchDaemons/com.apple.icloud.findmydeviced.plist: Could not find specified service
+[OK] Daemon com.apple.icloud.findmydeviced Disabled
+[OK] Daemon com.apple.findmymacmessenger Disabled
+/System/Library/LaunchDaemons/com.apple.familycontrols.plist: Could not find specified service
+[OK] Daemon com.apple.familycontrols Disabled
+/System/Library/LaunchDaemons/com.apple.findmymac.plist: Could not find specified service
+[OK] Daemon com.apple.findmymac Disabled
+/System/Library/LaunchDaemons/com.apple.screensharing.plist: Could not find specified service
+/System/Library/LaunchDaemons/com.apple.screensharing.plist: Could not find specified service
+[OK] Daemon com.apple.screensharing Disabled
+/System/Library/LaunchDaemons/com.apple.apsd.plist: Could not find specified service
+[OK] Daemon com.apple.apsd Disabled
+/System/Library/LaunchDaemons/com.apple.AOSNotificationOSX.plist: No such file or directory
+/System/Library/LaunchDaemons/com.apple.AOSNotificationOSX.plist: No such file or directory
+[OK] Daemon com.apple.AOSNotificationOSX Disabled
+/System/Library/LaunchDaemons/com.apple.FileSyncAgent.sshd.plist: No such file or directory
+/System/Library/LaunchDaemons/com.apple.FileSyncAgent.sshd.plist: No such file or directory
+[OK] Daemon com.apple.FileSyncAgent.sshd Disabled
+/System/Library/LaunchDaemons/com.apple.ManagedClient.cloudconfigurationd.plist: Operation not permitted while System Integrity Protection is engaged
+/System/Library/LaunchDaemons/com.apple.ManagedClient.cloudconfigurationd.plist: Could not find specified service
+[OK] Daemon com.apple.ManagedClient.cloudconfigurationd Disabled
+/System/Library/LaunchDaemons/com.apple.ManagedClient.enroll.plist: Operation not permitted while System Integrity Protection is engaged
+/System/Library/LaunchDaemons/com.apple.ManagedClient.enroll.plist: Could not find specified service
+[OK] Daemon com.apple.ManagedClient.enroll Disabled
+/System/Library/LaunchDaemons/com.apple.ManagedClient.plist: Operation not permitted while System Integrity Protection is engaged
+/System/Library/LaunchDaemons/com.apple.ManagedClient.plist: Could not find specified service
+[OK] Daemon com.apple.ManagedClient Disabled
+/System/Library/LaunchDaemons/com.apple.ManagedClient.startup.plist: Could not find specified service
+/System/Library/LaunchDaemons/com.apple.ManagedClient.startup.plist: Could not find specified service
+[OK] Daemon com.apple.ManagedClient.startup Disabled
+/System/Library/LaunchDaemons/com.apple.iCloudStats.plist: No such file or directory
+/System/Library/LaunchDaemons/com.apple.iCloudStats.plist: No such file or directory
+[OK] Daemon com.apple.iCloudStats Disabled
+/System/Library/LaunchDaemons/com.apple.locationd.plist: Could not find specified service
+[OK] Daemon com.apple.locationd Disabled
+/System/Library/LaunchDaemons/com.apple.mbicloudsetupd.plist: No such file or directory
+/System/Library/LaunchDaemons/com.apple.mbicloudsetupd.plist: No such file or directory
+[OK] Daemon com.apple.mbicloudsetupd Disabled
+/System/Library/LaunchDaemons/com.apple.awacsd.plist: Could not find specified service
+[OK] Daemon com.apple.awacsd Disabled
+/System/Library/LaunchDaemons/com.apple.familycontrols.plist: Could not find specified service
+/System/Library/LaunchDaemons/com.apple.familycontrols.plist: Could not find specified service
+[OK] Daemon com.apple.familycontrols Disabled
+andi pansen ~/p/cashboard/provision master 5 $ 
