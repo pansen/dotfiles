@@ -5,6 +5,18 @@
 
 # @pansen reduced that to some obvious unwanted services, rather than performing a big-hammer action
 
+# links
+# https://github.com/thewebsitenursery/OS-X-Security-and-Privacy-Guide#captive-portal
+# https://github.com/drduh/macOS-Security-and-Privacy-Guide/blob/master/comments.csv
+# https://discussions.apple.com/thread/4250762?tstart=0
+# https://developer.apple.com/library/content/qa/qa1176/_index.html
+# http://tech.masterofsql.com/os-x/unload-disable-unwanted-agents-daemons-os-x.html
+# http://i-tweak.blogspot.de/2016/08/disable-osx-services.html
+# https://www.reddit.com/r/mac/comments/54870l/what_is_comappleparsecd/
+# https://vilimpoc.org/blog/2014/01/15/provisioning-os-x-and-disabling-unnecessary-services/
+# https://gist.githubusercontent.com/pwnsdx/d87b034c4c0210b988040ad2f85a68d3/raw/8bebed89f390598aea1c008571fad0166dab52fd/mac.sh
+
+
 # Agents to disable
 TODISABLE=( \
 	'com.apple.familycircled' \
