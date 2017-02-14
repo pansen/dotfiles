@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-port -v install coreutils bash bash-completion stow realpath
+port -v install coreutils bash bash-completion stow realpath pigz
 port -v install vim +python27
 port -v install git +bash_completion +svn -credential_osxkeychain
 port -v install tree grep rsync watch jq pv tmux
