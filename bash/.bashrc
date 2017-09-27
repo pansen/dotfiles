@@ -115,6 +115,11 @@ if [ -f $PORTS_PREFIX/etc/profile.d/bash_completion.sh ]; then
     . $PORTS_PREFIX/etc/profile.d/bash_completion.sh
 fi
 
+# the one from homebrew: `brew install bash-completion2`
+if [ -f /usr/local/share/bash-completion/bash_completion ]; then
+    . /usr/local/share/bash-completion/bash_completion
+fi
+
 # http://superuser.com/a/32299
 GIT_COMPLETION_DIR="$PORTS_PREFIX/etc/bash_completion.d"
 [ -f "${GIT_COMPLETION_DIR}/git-completion.bash" ] \
