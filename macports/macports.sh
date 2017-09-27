@@ -11,12 +11,12 @@ port -v install elixir
 port -v install duplicity duply
 # required for https://github.com/anthonygelibert/QLColorCode
 port -v install colordiff highlight
-port -v install maven32
+port -v install maven3 gradle
 port -v install nmap ngrep htop vnstat iftop bmon libyaml ImageMagick lnav
 port -v install cmake gnupg
 port -v install openssh
 port -v install ffmpeg +nonfree 
-# port -v install mplayer +smb +mencoder_extras +a52 +aa +noappleremote +osd
+port -v install mplayer +smb +mencoder_extras +a52 +aa +noappleremote +osd
 port -v install mpv +smb +osd +caca +opengl +jack +enca +network
 port -v install mkvtoolnix +wxwidgets
 port -v install testdisk
@@ -25,7 +25,6 @@ port -v install dos2unix
 port -v install iperf
 port -v install go gdb rr
 port -v install qemu
-# port -v install postgresql95 +python
 port -v install xmlstarlet jq
 # port -v install neomutt +compress
 # for http://keepass.info/download/p_macosx/index.html
