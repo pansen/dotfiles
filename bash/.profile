@@ -27,8 +27,6 @@ export LANG=en_US.UTF-8
 # http://stackoverflow.com/a/18144853/2741111
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
 export ANT_HOME=/usr/share/ant
-export GRADLE_HOME=$PORTS_PREFIX/share/java/gradle
-export GRAILS_HOME="$PORTS_PREFIX/share/java/grails"
 export CFLAGS="-O2 -pipe"
 export CXXFLAGS="${CFLAGS}"
 export MAKEOPTS="-j9"
@@ -67,6 +65,7 @@ export PATH="~/bin:$PATH"
 export PATH="$PATH":"$HOME/.cargo/bin"
 
 export PATH="/Applications/Postgres.app//Contents/Versions/9.6/bin:$PATH"
+export PATH="$PORTS_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="$PATH":"$HOME/homebrew/bin"
 export PATH="$PATH":~/Library/Python/2.7/bin/
 export PATH="$PATH:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/bin"

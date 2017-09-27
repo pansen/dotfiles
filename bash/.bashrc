@@ -126,13 +126,13 @@ GIT_COMPLETION_DIR="$PORTS_PREFIX/etc/bash_completion.d"
 # ------------------------------------------
 
 if [ "$color_prompt" = yes ]; then
-    GNU_LS="$PORTS_PREFIX/libexec/gnubin/ls"
+    GNU_LS="$PORTS_PREFIX/opt/coreutils/libexec/gnubin/ls"
     if [ "$TERM" != "dumb" ] && [ -x $GNU_LS ]; then
-        alias ls='$PORTS_PREFIX/libexec/gnubin/ls --color=auto'
+        alias ls='$PORTS_PREFIX/opt/coreutils/libexec/gnubin/ls --color=auto'
     fi
 
     export LS_OPTIONS='--color=auto'
-    GNU_DIRCOLORS="$PORTS_PREFIX/libexec/gnubin/dircolors"
+    GNU_DIRCOLORS="$PORTS_PREFIX/opt/coreutils/libexec/gnubin/dircolors"
     if [ "$TERM" != "dumb" ] && [ -x $GNU_DIRCOLORS ]; then
         eval $($GNU_DIRCOLORS $HOME/.dir_colors)
 
