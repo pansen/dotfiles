@@ -38,12 +38,17 @@ esac
 # also install GPGTools for mac to get this net ``pinentry-mac`` application:
 # https://github.com/GPGTools/pinentry-mac
 gpg_envfile="$HOME/.gnupg/gpg-agent.env"
-GPG_AGENT_OPTIONS=" --daemon --use-standard-socket --enable-ssh-support --default-cache-ttl-ssh 7200 --max-cache-ttl-ssh 14400 --write-env-file ${gpg_envfile}"
+GPG_AGENT_OPTIONS=" --daemon \
+    --enable-ssh-support \
+    --default-cache-ttl-ssh 7200 \
+    --max-cache-ttl-ssh 14400 \
+    "
+# killall gpg-agent; rm -f ~/.gnupg/S.gpg-agent ~/.gpg-agent-info ~/.gnupg/gpg-agent.env
 if [[ -e "$gpg_envfile" ]] && kill -0 $(grep GPG_AGENT_INFO "$gpg_envfile" | cut -d: -f 2) 2>/dev/null; then
-    # echo "use existing $gpg_envfile"
+    echo "use existing $gpg_envfile"
     eval "$(cat "$gpg_envfile")"
 else
-    # echo "start new process for $gpg_envfile ..."
+    echo "start new process with <$GPG_AGENT_OPTIONS> ..."
     eval "$(gpg-agent $GPG_AGENT_OPTIONS)"
 fi
 
