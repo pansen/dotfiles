@@ -241,3 +241,8 @@ if [ "$color_prompt" = yes ]; then
     PS1="${CYAN}\$([ \"root\" == \"$USER\" ] && printf \"${BRIGHT_RED}\")${USER} ${BRIGHT_BLUE}${HOSTNAME_SHORT}${WHITE} \w \$(git_branch)\${timer_show} \$ "
     export CLICOLOR=1
 fi
+
+
+if [ -f /usr/local/bin/direnv ]; then
+  eval "$(direnv hook bash)"
+fi
