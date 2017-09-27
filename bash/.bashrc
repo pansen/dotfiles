@@ -111,7 +111,7 @@ if [ -f $PORTS_PREFIX/etc/profile.d/bash_completion.sh ]; then
 fi
 
 # http://superuser.com/a/32299
-GIT_COMPLETION_DIR="$PORTS_PREFIX/share/git"
+GIT_COMPLETION_DIR="$PORTS_PREFIX/etc/bash_completion.d"
 [ -f "${GIT_COMPLETION_DIR}/git-completion.bash" ] \
     && . "${GIT_COMPLETION_DIR}/git-completion.bash"
 [ -f "${GIT_COMPLETION_DIR}/git-prompt.sh" ] \
