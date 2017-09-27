@@ -25,7 +25,7 @@ export LANG=en_US.UTF-8
 # install java 1.7
 # http://stackoverflow.com/a/19737307/3093179
 # http://stackoverflow.com/a/18144853/2741111
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
 export ANT_HOME=/usr/share/ant
 export GRADLE_HOME=$PORTS_PREFIX/share/java/gradle
 export GRAILS_HOME="$PORTS_PREFIX/share/java/grails"
